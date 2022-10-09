@@ -195,6 +195,11 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         {
             LimpaForms();
         }
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.Show();
+        }
 
         #endregion
 

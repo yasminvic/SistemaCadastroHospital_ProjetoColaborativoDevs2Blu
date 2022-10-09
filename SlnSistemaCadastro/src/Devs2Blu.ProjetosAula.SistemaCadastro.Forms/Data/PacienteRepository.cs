@@ -13,10 +13,9 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
     {
         public Pessoa Save(Pessoa pessoa, Endereco endereco, Paciente paciente, Convenio convenio)
         {
-            MySqlConnection conn = ConnectionMySQL.GetConnection();
-
             try
             {
+                MySqlConnection conn = ConnectionMySQL.GetConnection();
                 pessoa.Id = SavePessoa(pessoa, conn);
                 EnderecoRepository.SaveEndereco(endereco, conn, pessoa.Id);
                 paciente.Id = SavePaciente(paciente, conn, pessoa.Id, convenio.Id);
