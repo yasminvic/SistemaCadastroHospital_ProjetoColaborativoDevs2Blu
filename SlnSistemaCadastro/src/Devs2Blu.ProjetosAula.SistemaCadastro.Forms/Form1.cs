@@ -18,6 +18,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         public MySqlConnection Conn { get; private set; }
         public ConvenioRepository ConvenioRepository = new ConvenioRepository();
         public PacienteRepository PacienteRepository = new PacienteRepository();
+        public MySqlException myExc { get; set; }
 
         public Form1()
         {
@@ -40,30 +41,90 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         }
         private bool ValidaFormCadastro()
         {
-            /*if (txtNome.Text.Equals(""))
+            if (txtNome.Text.Equals(""))
+            {
+                MessageBox.Show("Por Favor, Informe seu Nome!");
                 return false;
+            }
             if (txtCGCCPF.Text.Equals(""))
+            {
+                MessageBox.Show("Por Favor, Informe seu CPF!");
                 return false;
+            }
             if (cboConvenio.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por Favor, Informe seu Convenio!");
                 return false;
+            }
             if (mskCEP.Text.Equals(""))
+            {
+                MessageBox.Show("Por Favor, Informe seu CEP!");
                 return false;
+            }
             if (cboUF.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por Favor, Informe seu UF!");
                 return false;
+            }
             if (txtCidade.Text.Equals(""))
+            {
+                MessageBox.Show("Por Favor, Informe sua Cidade!");
                 return false;
+            }
             if (txtRua.Text.Equals(""))
+            {
+                MessageBox.Show("Por Favor, Informe sua Rua!");
                 return false;
+            }
             if (txtNumero.Text.Equals(""))
+            {
+                MessageBox.Show("Por Favor, Informe seu Numero!");
                 return false;
+            }
             if (txtBairro.Text.Equals(""))
+            {
+                MessageBox.Show("Por Favor, Informe seu Bairro!");
                 return false;
+            }
             if (txtNumeroProntuario.Text.Equals(""))
+            {
+                MessageBox.Show("Por Favor, Informe o Numero de Prontuario!");
                 return false;
+            }
             if (txtPacienteRisco.Text.Equals(""))
-                return false;*/
+            {
+                MessageBox.Show("Por Favor, Informe o Risco do Paciente!");
+                return false;
+            }
 
             return true;
+        }
+        private void LimpaForms()
+        {
+            txtNome.Text = "";
+            txtCGCCPF.Text = "";
+
+            if (lblCGCCPF.Text == "CPF")
+            {
+                txtCGCCPF.Mask = "000.000.000-00";
+            }
+            else if (lblCGCCPF.Text == "CNPJ")
+            {
+                txtCGCCPF.Mask = "00.000.000/000-00";
+            }
+
+            cboConvenio.SelectedValue = 0;
+
+            mskCEP.Text = "";
+            mskCEP.Mask = "00.000-000";
+            txtRua.Text = "";
+            txtNumero.Text = "";
+            txtBairro.Text = "";
+            txtCidade.Text = "";
+            cboUF.Text = "";
+
+            txtNumeroProntuario.Text = "";
+            txtPacienteRisco.Text = "";
         }
 
         #endregion
@@ -72,6 +133,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            LimpaForms();
             #region TesteConexao
             /*Conn = ConnectionMySQL.GetConnection();
 
@@ -102,7 +164,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             {
                 Pessoa pessoa = new Pessoa();
                 pessoa.Nome = txtNome.Text;
-                pessoa.CGCCPF = txtCGCCPF.Text.Replace(',','.');
+                pessoa.CGCCPF = txtCGCCPF.Text.Replace(',', '.');
 
                 Convenio convenio = new Convenio();
                 convenio.Id = (int)cboConvenio.SelectedValue;
@@ -125,10 +187,16 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
                 {
                     MessageBox.Show($"Paciente {paciente.Pessoa.Id} - {pessoa.Nome} salvo com sucesso!", "Adicionar paciente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     PopulaDataGridPessoa();
+                    LimpaForms();
                 }
             }
         }
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            LimpaForms();
+        }
 
         #endregion
+
     }
 }
