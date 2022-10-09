@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devs2Blu.ProjetosAula.SistemaCadastro.Forms", "src\Devs2Blu.ProjetosAula.SistemaCadastro.Forms\Devs2Blu.ProjetosAula.SistemaCadastro.Forms.csproj", "{8049BC61-239C-4D83-8060-611BCC81722E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devs2Blu.ProjetosAula.SistemaCadastro.Models", "src\Devs2Blu.ProjetosAula.OOP3.Models\Devs2Blu.ProjetosAula.SistemaCadastro.Models.csproj", "{06444F8B-1FE4-45EB-A99B-69F4B46C8358}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8049BC61-239C-4D83-8060-611BCC81722E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8049BC61-239C-4D83-8060-611BCC81722E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8049BC61-239C-4D83-8060-611BCC81722E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8049BC61-239C-4D83-8060-611BCC81722E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06444F8B-1FE4-45EB-A99B-69F4B46C8358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06444F8B-1FE4-45EB-A99B-69F4B46C8358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06444F8B-1FE4-45EB-A99B-69F4B46C8358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06444F8B-1FE4-45EB-A99B-69F4B46C8358}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC8F1BE2-8B94-49D1-AB72-884823007B9B}
+	EndGlobalSection
+EndGlobal
