@@ -29,7 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gpFormCadastro = new System.Windows.Forms.GroupBox();
+            this.gpPaciente = new System.Windows.Forms.GroupBox();
+            this.txtNumeroProntuario = new System.Windows.Forms.TextBox();
+            this.txtPacienteRisco = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.txtCGCCPF = new System.Windows.Forms.MaskedTextBox();
             this.btnInfo = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -63,18 +69,13 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gpPaciente = new System.Windows.Forms.GroupBox();
-            this.txtPacienteRisco = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtNumeroProntuario = new System.Windows.Forms.TextBox();
             this.gpFormCadastro.SuspendLayout();
+            this.gpPaciente.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gpListastagem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPacientes)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.gpPaciente.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpFormCadastro
@@ -95,10 +96,55 @@
             this.gpFormCadastro.Controls.Add(this.cboConvenio);
             this.gpFormCadastro.Location = new System.Drawing.Point(12, 46);
             this.gpFormCadastro.Name = "gpFormCadastro";
-            this.gpFormCadastro.Size = new System.Drawing.Size(449, 399);
+            this.gpFormCadastro.Size = new System.Drawing.Size(1278, 109);
             this.gpFormCadastro.TabIndex = 2;
             this.gpFormCadastro.TabStop = false;
             this.gpFormCadastro.Text = "Formulário de Cadastro";
+            // 
+            // gpPaciente
+            // 
+            this.gpPaciente.Controls.Add(this.txtNumeroProntuario);
+            this.gpPaciente.Controls.Add(this.txtPacienteRisco);
+            this.gpPaciente.Controls.Add(this.label10);
+            this.gpPaciente.Controls.Add(this.label14);
+            this.gpPaciente.Location = new System.Drawing.Point(883, 0);
+            this.gpPaciente.Name = "gpPaciente";
+            this.gpPaciente.Size = new System.Drawing.Size(261, 81);
+            this.gpPaciente.TabIndex = 19;
+            this.gpPaciente.TabStop = false;
+            this.gpPaciente.Text = "Dados do Paciente";
+            // 
+            // txtNumeroProntuario
+            // 
+            this.txtNumeroProntuario.Location = new System.Drawing.Point(98, 23);
+            this.txtNumeroProntuario.Name = "txtNumeroProntuario";
+            this.txtNumeroProntuario.Size = new System.Drawing.Size(143, 20);
+            this.txtNumeroProntuario.TabIndex = 19;
+            // 
+            // txtPacienteRisco
+            // 
+            this.txtPacienteRisco.Location = new System.Drawing.Point(98, 49);
+            this.txtPacienteRisco.Name = "txtPacienteRisco";
+            this.txtPacienteRisco.Size = new System.Drawing.Size(143, 20);
+            this.txtPacienteRisco.TabIndex = 17;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(13, 52);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Paciente Risco";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(0, 26);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(92, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Nmr do Prontuário";
             // 
             // txtCGCCPF
             // 
@@ -115,9 +161,9 @@
             this.btnInfo.FlatAppearance.BorderSize = 0;
             this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfo.ForeColor = System.Drawing.Color.Black;
-            this.btnInfo.Location = new System.Drawing.Point(4, 354);
+            this.btnInfo.Location = new System.Drawing.Point(1243, 0);
             this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(46, 39);
+            this.btnInfo.Size = new System.Drawing.Size(29, 26);
             this.btnInfo.TabIndex = 17;
             this.btnInfo.UseVisualStyleBackColor = true;
             // 
@@ -127,9 +173,9 @@
             this.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(356, 354);
+            this.btnExcluir.Location = new System.Drawing.Point(1208, 52);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(39, 39);
+            this.btnExcluir.Size = new System.Drawing.Size(29, 26);
             this.btnExcluir.TabIndex = 16;
             this.btnExcluir.UseVisualStyleBackColor = true;
             // 
@@ -139,9 +185,9 @@
             this.btnLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLimpar.FlatAppearance.BorderSize = 0;
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpar.Location = new System.Drawing.Point(315, 354);
+            this.btnLimpar.Location = new System.Drawing.Point(1173, 52);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(39, 39);
+            this.btnLimpar.Size = new System.Drawing.Size(29, 26);
             this.btnLimpar.TabIndex = 15;
             this.btnLimpar.UseVisualStyleBackColor = true;
             // 
@@ -151,9 +197,9 @@
             this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSalvar.FlatAppearance.BorderSize = 0;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalvar.Location = new System.Drawing.Point(401, 354);
+            this.btnSalvar.Location = new System.Drawing.Point(1243, 52);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(39, 39);
+            this.btnSalvar.Size = new System.Drawing.Size(29, 26);
             this.btnSalvar.TabIndex = 14;
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -179,7 +225,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(9, 99);
+            this.groupBox3.Location = new System.Drawing.Point(446, 0);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(431, 109);
             this.groupBox3.TabIndex = 11;
@@ -197,6 +243,34 @@
             // cboUF
             // 
             this.cboUF.FormattingEnabled = true;
+            this.cboUF.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PB",
+            "PR",
+            "PE",
+            "PI",
+            "RJ",
+            "RN",
+            "RS",
+            "RO",
+            "RR",
+            "SC",
+            "SP",
+            "SE",
+            "TO"});
             this.cboUF.Location = new System.Drawing.Point(176, 24);
             this.cboUF.Name = "cboUF";
             this.cboUF.Size = new System.Drawing.Size(65, 21);
@@ -360,9 +434,9 @@
             // gpListastagem
             // 
             this.gpListastagem.Controls.Add(this.gridPacientes);
-            this.gpListastagem.Location = new System.Drawing.Point(467, 27);
+            this.gpListastagem.Location = new System.Drawing.Point(12, 161);
             this.gpListastagem.Name = "gpListastagem";
-            this.gpListastagem.Size = new System.Drawing.Size(547, 412);
+            this.gpListastagem.Size = new System.Drawing.Size(1278, 407);
             this.gpListastagem.TabIndex = 3;
             this.gpListastagem.TabStop = false;
             // 
@@ -370,11 +444,17 @@
             // 
             this.gridPacientes.AllowUserToAddRows = false;
             this.gridPacientes.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gridPacientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridPacientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPacientes.Location = new System.Drawing.Point(6, 19);
+            this.gridPacientes.Location = new System.Drawing.Point(6, 8);
             this.gridPacientes.Name = "gridPacientes";
             this.gridPacientes.ReadOnly = true;
-            this.gridPacientes.Size = new System.Drawing.Size(535, 393);
+            this.gridPacientes.RowHeadersVisible = false;
+            this.gridPacientes.Size = new System.Drawing.Size(1266, 393);
             this.gridPacientes.TabIndex = 0;
             // 
             // menuStrip1
@@ -385,7 +465,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1026, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1303, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -417,57 +497,12 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // gpPaciente
-            // 
-            this.gpPaciente.Controls.Add(this.txtNumeroProntuario);
-            this.gpPaciente.Controls.Add(this.txtPacienteRisco);
-            this.gpPaciente.Controls.Add(this.label10);
-            this.gpPaciente.Controls.Add(this.label14);
-            this.gpPaciente.Location = new System.Drawing.Point(9, 214);
-            this.gpPaciente.Name = "gpPaciente";
-            this.gpPaciente.Size = new System.Drawing.Size(431, 109);
-            this.gpPaciente.TabIndex = 19;
-            this.gpPaciente.TabStop = false;
-            this.gpPaciente.Text = "Dados do Paciente";
-            // 
-            // txtPacienteRisco
-            // 
-            this.txtPacienteRisco.Location = new System.Drawing.Point(98, 49);
-            this.txtPacienteRisco.Name = "txtPacienteRisco";
-            this.txtPacienteRisco.Size = new System.Drawing.Size(143, 20);
-            this.txtPacienteRisco.TabIndex = 17;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 52);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 13);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Paciente Risco";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(0, 26);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(92, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Nmr do Prontuário";
-            // 
-            // txtNumeroProntuario
-            // 
-            this.txtNumeroProntuario.Location = new System.Drawing.Point(98, 23);
-            this.txtNumeroProntuario.Name = "txtNumeroProntuario";
-            this.txtNumeroProntuario.Size = new System.Drawing.Size(143, 20);
-            this.txtNumeroProntuario.TabIndex = 19;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(1026, 457);
+            this.ClientSize = new System.Drawing.Size(1303, 580);
             this.Controls.Add(this.gpListastagem);
             this.Controls.Add(this.gpFormCadastro);
             this.Controls.Add(this.menuStrip1);
@@ -476,6 +511,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gpFormCadastro.ResumeLayout(false);
             this.gpFormCadastro.PerformLayout();
+            this.gpPaciente.ResumeLayout(false);
+            this.gpPaciente.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -484,8 +521,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridPacientes)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.gpPaciente.ResumeLayout(false);
-            this.gpPaciente.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

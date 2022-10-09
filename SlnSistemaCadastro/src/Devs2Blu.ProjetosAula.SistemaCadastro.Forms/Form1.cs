@@ -35,9 +35,8 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         }
         private void PopulaDataGridPessoa()
         {
-            var listPessoas = PacienteRepository.GetPessoas();
-            /*var listPacientes = PacienteRepository.GetPacientes();*/
-            gridPacientes.DataSource = new BindingSource(listPessoas, null);
+            var listPacientes = PacienteRepository.GetPessoas();
+            gridPacientes.DataSource = new BindingSource(listPacientes, null);
         }
         private bool ValidaFormCadastro()
         {
@@ -101,16 +100,30 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         {
             if (ValidaFormCadastro())
             {
+                Pessoa pessoa = new Pessoa();
+                pessoa.Nome = txtNome.Text;
+                pessoa.CGCCPF = txtCGCCPF.Text.Replace(',','.');
+
+                Convenio convenio = new Convenio();
+                convenio.Id = (int)cboConvenio.SelectedValue;
+
+                Endereco endereco = new Endereco();
+                endereco.CEP = mskCEP.Text.Replace(',', '.');
+                endereco.Rua = txtRua.Text;
+                endereco.Numero = Int32.Parse(txtNumero.Text);
+                endereco.Bairro = txtBairro.Text;
+                endereco.Cidade = txtCidade.Text;
+                endereco.UF = cboUF.Text;
+
                 Paciente paciente = new Paciente();
-                paciente.Pessoa.Nome = txtNome.Text;
-                paciente.Pessoa.CGCCPF = txtCGCCPF.Text.Replace(',','.');
-                paciente.Convenio.Id = (int)cboConvenio.SelectedValue;
+                paciente.NrProntuario = Int32.Parse(txtNumeroProntuario.Text);
+                paciente.PacienteRisco = txtPacienteRisco.Text;
 
-                var pacienteResult = PacienteRepository.Save(paciente);
+                var pacienteResult = PacienteRepository.Save(pessoa, endereco, paciente, convenio);
 
-                if (pacienteResult.Pessoa.Id > 0)
+                if (pacienteResult.Id > 0)
                 {
-                    MessageBox.Show($"Pessoa {paciente.Pessoa.Id} - {paciente.Pessoa.Nome} salva com sucesso!", "Adicionar pessoa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"Paciente {paciente.Pessoa.Id} - {pessoa.Nome} salvo com sucesso!", "Adicionar paciente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     PopulaDataGridPessoa();
                 }
             }
