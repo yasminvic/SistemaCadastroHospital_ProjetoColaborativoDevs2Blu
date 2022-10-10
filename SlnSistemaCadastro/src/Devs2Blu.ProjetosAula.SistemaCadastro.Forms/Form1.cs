@@ -2,6 +2,7 @@
 using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Model;
 using MySql.Data.MySqlClient;
 using System;
+using System.Security.Permissions;
 using System.Windows.Forms;
 
 namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
@@ -11,6 +12,10 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         public MySqlConnection Conn { get; set; }
         public ConvenioRepository ConvenioRepository = new ConvenioRepository();
         public PacienteRepository PacienteRepository = new PacienteRepository();
+        public EnderecoRepository EnderecoRepository = new EnderecoRepository();
+
+        public Random random = new Random();
+        public DateTime dateTime = new DateTime();
 
         public Form1()
         {
@@ -27,7 +32,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         }
         private void PopulaDataGridPessoa()
         {
-            var listPessoa = PacienteRepository.GetPessoas();
+            var listPessoa = PessoaRepository.GetPessoas();
             gridPacientes.DataSource = new BindingSource(listPessoa, null);
         }
 
@@ -97,21 +102,32 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         {
             if (ValidaFormCadastro())
             {
-                Paciente paciente = new Paciente();
-                paciente.Pessoa.Nome = txtNome.Text;
-                paciente.Pessoa.CGCCPF = txtCGCCPF.Text.Replace(",", ".");
-                paciente.Convenio.Id = (int)cboConvenio.SelectedValue;
+                Pessoa pessoa = new Pessoa();
+                pessoa.Nome = txtNome.Text;
+                pessoa.CGCCPF = txtCGCCPF.Text.Replace(",", ".");
+                //pessoa.TipoPessoa = gpTipoPessoa.
 
                 Endereco endereco = new Endereco();
-                endereco.CEP = mskCEP.Text;
+                endereco.CEP = mskCEP.Text.Replace(",", ".");
                 endereco.Rua = txtRua.Text;
                 endereco.Bairro = txtBairro.Text;
                 endereco.UF = cboUF.Text;
                 endereco.Cidade = txtCidade.Text;
                 endereco.Numero = Int32.Parse(txtNumero.Text);
 
-                var pacienteResult = PacienteRepository.Save(paciente, endereco);
-                if (pacienteResult.Pessoa.Id > 0)
+                Paciente paciente = new Paciente();
+                paciente.Pessoa.Id = pessoa.Id;
+                paciente.Convenio.Id = (int)cboConvenio.SelectedValue;
+                paciente.NrProntuario = Int32.Parse($"{dateTime.Day}" + $"{random.Next(100, 999)}");
+
+                int idPessoa = PessoaRepository.SavePessoa(pessoa);   // Salva a pessoa e retorna o seu id
+                paciente.Pessoa.Id = idPessoa;
+                EnderecoRepository.SaveEndereco(endereco, idPessoa);  // Salva o endereço
+                PacienteRepository.SavePaciente(paciente);            // Salva o Paciente
+
+
+
+                if (paciente.Pessoa.Id > 0)
                 {
                     MessageBox.Show($"Pessoa {paciente.Pessoa.Id} - {paciente.Pessoa.Nome} - {paciente.Pessoa.CGCCPF} salva com sucesso!", "Adicionar Pessoa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     PopulaDataGridPessoa();
