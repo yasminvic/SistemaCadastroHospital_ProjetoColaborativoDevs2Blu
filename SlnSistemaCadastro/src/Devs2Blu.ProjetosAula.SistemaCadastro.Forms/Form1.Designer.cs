@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gpFormCadastro = new System.Windows.Forms.GroupBox();
             this.gpPaciente = new System.Windows.Forms.GroupBox();
             this.txtNumeroProntuario = new System.Windows.Forms.TextBox();
@@ -153,6 +153,7 @@
             this.txtCGCCPF.Name = "txtCGCCPF";
             this.txtCGCCPF.Size = new System.Drawing.Size(170, 20);
             this.txtCGCCPF.TabIndex = 18;
+            this.txtCGCCPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnInfo
             // 
@@ -241,6 +242,7 @@
             this.mskCEP.Name = "mskCEP";
             this.mskCEP.Size = new System.Drawing.Size(79, 20);
             this.mskCEP.TabIndex = 19;
+            this.mskCEP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cboUF
             // 
@@ -287,7 +289,7 @@
             // 
             // txtBairro
             // 
-            this.txtBairro.Location = new System.Drawing.Point(64, 80);
+            this.txtBairro.Location = new System.Drawing.Point(64, 77);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(218, 20);
             this.txtBairro.TabIndex = 16;
@@ -340,7 +342,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Numero";
+            this.label5.Text = "Número";
             // 
             // label4
             // 
@@ -446,10 +448,10 @@
             // 
             this.gridPacientes.AllowUserToAddRows = false;
             this.gridPacientes.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.gridPacientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gridPacientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.gridPacientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridPacientes.Location = new System.Drawing.Point(6, 8);
@@ -482,7 +484,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 

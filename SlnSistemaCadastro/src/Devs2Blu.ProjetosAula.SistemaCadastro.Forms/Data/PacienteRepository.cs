@@ -69,11 +69,10 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
 
         public MySqlDataReader GetPessoas()
         {
-            MySqlConnection conn = ConnectionMySQL.GetConnection();
-
             try
             {
-                MySqlCommand cmd = new MySqlCommand(SQL_SELECT_PESSOA_ENDERECO, conn);
+                MySqlConnection conn = ConnectionMySQL.GetConnection();
+                MySqlCommand cmd = new MySqlCommand(SQL_SELECT_ALL, conn);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 return dataReader;
@@ -113,6 +112,23 @@ VALUES
         private const string SQL_SELECT_PESSOA = @"SELECT id, nome, cgccpf, tipopessoa, flstatus FROM pessoa";
         private const string SQL_SELECT_PACIENTE = @"SELECT id_pessoa, id_convenio, numero_prontuario, paciente_risco, flstatus, flobito FROM paciente";
         private const string SQL_SELECT_PESSOA_ENDERECO = @"SELECT p.ID, p.Nome, p.CGCCPF, p.TipoPessoa, p.FlStatus, e.CEP, e.Rua, e.Numero, e.Bairro, e.Cidade, e.UF FROM pessoa p JOIN endereco e ON p.id = e.id_pessoa";
+        private const string SQL_SELECT_ALL = @"SELECT p.ID,
+p.Nome,
+p.CGCCPF,
+p.TipoPessoa,
+pa.Numero_Prontuario,
+pa.Paciente_Risco,
+c.nome as Convenio,
+e.CEP,
+e.Rua,
+e.Numero,
+e.Bairro,
+e.Cidade,
+e.UF
+FROM pessoa p 
+INNER JOIN endereco e ON p.id = e.id_pessoa
+INNER JOIN paciente pa ON p.id = pa.id_pessoa
+INNER JOIN convenio c ON pa.id_convenio = c.id && p.id = pa.id_pessoa";
         #endregion
     }
 }

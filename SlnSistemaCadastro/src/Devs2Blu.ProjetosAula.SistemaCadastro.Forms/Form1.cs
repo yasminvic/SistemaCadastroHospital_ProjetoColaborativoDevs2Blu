@@ -34,11 +34,6 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             cboConvenio.DisplayMember = "nome";
             cboConvenio.ValueMember = "id";
         }
-        public void PopulaDataGridPessoa()
-        {
-            var listPacientes = PacienteRepository.GetPessoas();
-            gridPacientes.DataSource = new BindingSource(listPacientes, null);
-        }
         private bool ValidaFormCadastro()
         {
             if (txtNome.Text.Equals(""))
@@ -96,8 +91,13 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
                 MessageBox.Show("Por Favor, Informe o Risco do Paciente!");
                 return false;
             }
-
+            
             return true;
+        }
+        public void PopulaDataGridPessoa()
+        {
+            var listPacientes = PacienteRepository.GetPessoas();
+            gridPacientes.DataSource = new BindingSource(listPacientes, null);
         }
         public void LimpaForms()
         {
@@ -133,7 +133,6 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LimpaForms();
             #region TesteConexao
             /*Conn = ConnectionMySQL.GetConnection();
 
@@ -143,6 +142,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
                 Conn.Close();
             }*/
             #endregion
+            LimpaForms();
             PopulaComboConveio();
             PopulaDataGridPessoa();
         }
@@ -185,7 +185,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
 
                 if (pacienteResult.Id > 0)
                 {
-                    MessageBox.Show($"Pessoa {pessoa.Id} - {pessoa.Nome} salvo com sucesso!", "Adicionar paciente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"Paciente {pessoa.Nome} salvo com sucesso!", "Adicionar paciente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     PopulaDataGridPessoa();
                     LimpaForms();
                 }
