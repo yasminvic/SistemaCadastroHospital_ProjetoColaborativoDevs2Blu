@@ -92,11 +92,11 @@
       <Name>Devs2Blu.ProjetosAula.SistemaCadastro.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <None Include="assets\img\btnIconExcluir.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnSalvar.BackgroundImage.png" />
+    <Content Include="Assets\img\btnIconExcluir.png" />
+    <Content Include="Assets\img\btnIconInfo.png" />
+    <Content Include="Assets\img\btnIconSalvar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,8 +11,6 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
         {
             MySqlConnection conn = ConnectionMySQL.GetConnection();
 
-            MessageBox.Show($"{paciente.Pessoa.Id}");
-
             try
             {
                 MySqlCommand cmd = new MySqlCommand(SQL_INSERT_PACIENTE, conn);

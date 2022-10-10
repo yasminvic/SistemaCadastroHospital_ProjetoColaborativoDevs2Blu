@@ -32,8 +32,12 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gpFormCadastro = new System.Windows.Forms.GroupBox();
             this.txtCGCCPF = new System.Windows.Forms.MaskedTextBox();
-            this.btnLimpar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.lblCGCCPF = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.gpTipoPessoa = new System.Windows.Forms.GroupBox();
+            this.rdJuridica = new System.Windows.Forms.RadioButton();
+            this.rdFisica = new System.Windows.Forms.RadioButton();
             this.gpEnderecoCadastro = new System.Windows.Forms.GroupBox();
             this.mskCEP = new System.Windows.Forms.MaskedTextBox();
             this.txtBairro = new System.Windows.Forms.TextBox();
@@ -47,14 +51,10 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblCGCCPF = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.gpTipoPessoa = new System.Windows.Forms.GroupBox();
-            this.rdJuridica = new System.Windows.Forms.RadioButton();
-            this.rdFisica = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.cboConvenio = new System.Windows.Forms.ComboBox();
             this.panelControles = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
@@ -65,56 +65,50 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gpPacienteCadastro = new System.Windows.Forms.GroupBox();
+            this.txtPacienteRisco = new System.Windows.Forms.TextBox();
+            this.lblPacienteRisco = new System.Windows.Forms.Label();
+            this.txtNmrProntuario = new System.Windows.Forms.TextBox();
+            this.lblNmrProntuario = new System.Windows.Forms.Label();
+            this.lblExcluir = new System.Windows.Forms.Label();
+            this.lblSalvar = new System.Windows.Forms.Label();
+            this.lblLimpar = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.gpFormCadastro.SuspendLayout();
-            this.gpEnderecoCadastro.SuspendLayout();
             this.gpTipoPessoa.SuspendLayout();
+            this.gpEnderecoCadastro.SuspendLayout();
             this.panelControles.SuspendLayout();
             this.gpConteudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPacientes)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.gpPacienteCadastro.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpFormCadastro
             // 
-            this.gpFormCadastro.BackColor = System.Drawing.Color.White;
+            this.gpFormCadastro.BackColor = System.Drawing.SystemColors.ControlDark;
             this.gpFormCadastro.Controls.Add(this.txtCGCCPF);
-            this.gpFormCadastro.Controls.Add(this.btnLimpar);
             this.gpFormCadastro.Controls.Add(this.txtNome);
-            this.gpFormCadastro.Controls.Add(this.gpEnderecoCadastro);
             this.gpFormCadastro.Controls.Add(this.lblCGCCPF);
             this.gpFormCadastro.Controls.Add(this.label2);
             this.gpFormCadastro.Controls.Add(this.gpTipoPessoa);
-            this.gpFormCadastro.Controls.Add(this.label1);
-            this.gpFormCadastro.Controls.Add(this.cboConvenio);
+            this.gpFormCadastro.ForeColor = System.Drawing.Color.Black;
             this.gpFormCadastro.Location = new System.Drawing.Point(16, 42);
             this.gpFormCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.gpFormCadastro.Name = "gpFormCadastro";
             this.gpFormCadastro.Padding = new System.Windows.Forms.Padding(4);
-            this.gpFormCadastro.Size = new System.Drawing.Size(477, 404);
+            this.gpFormCadastro.Size = new System.Drawing.Size(477, 138);
             this.gpFormCadastro.TabIndex = 3;
             this.gpFormCadastro.TabStop = false;
             this.gpFormCadastro.Text = "Formulário de Cadastro";
             // 
             // txtCGCCPF
             // 
-            this.txtCGCCPF.Location = new System.Drawing.Point(85, 67);
+            this.txtCGCCPF.Location = new System.Drawing.Point(85, 87);
             this.txtCGCCPF.Mask = "000.000.000-00";
             this.txtCGCCPF.Name = "txtCGCCPF";
-            this.txtCGCCPF.Size = new System.Drawing.Size(137, 22);
+            this.txtCGCCPF.Size = new System.Drawing.Size(98, 22);
             this.txtCGCCPF.TabIndex = 16;
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.BackColor = System.Drawing.Color.Goldenrod;
-            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpar.Location = new System.Drawing.Point(19, 338);
-            this.btnLimpar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(105, 38);
-            this.btnLimpar.TabIndex = 15;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = false;
             // 
             // txtNome
             // 
@@ -124,9 +118,68 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.txtNome.Size = new System.Drawing.Size(332, 22);
             this.txtNome.TabIndex = 12;
             // 
+            // lblCGCCPF
+            // 
+            this.lblCGCCPF.AutoSize = true;
+            this.lblCGCCPF.Location = new System.Drawing.Point(42, 90);
+            this.lblCGCCPF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCGCCPF.Name = "lblCGCCPF";
+            this.lblCGCCPF.Size = new System.Drawing.Size(33, 16);
+            this.lblCGCCPF.TabIndex = 10;
+            this.lblCGCCPF.Text = "CPF";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(31, 38);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Nome";
+            // 
+            // gpTipoPessoa
+            // 
+            this.gpTipoPessoa.Controls.Add(this.rdJuridica);
+            this.gpTipoPessoa.Controls.Add(this.rdFisica);
+            this.gpTipoPessoa.Location = new System.Drawing.Point(230, 64);
+            this.gpTipoPessoa.Margin = new System.Windows.Forms.Padding(4);
+            this.gpTipoPessoa.Name = "gpTipoPessoa";
+            this.gpTipoPessoa.Padding = new System.Windows.Forms.Padding(4);
+            this.gpTipoPessoa.Size = new System.Drawing.Size(187, 52);
+            this.gpTipoPessoa.TabIndex = 8;
+            this.gpTipoPessoa.TabStop = false;
+            this.gpTipoPessoa.Text = "Tipo Pessoa";
+            // 
+            // rdJuridica
+            // 
+            this.rdJuridica.AutoSize = true;
+            this.rdJuridica.Location = new System.Drawing.Point(88, 20);
+            this.rdJuridica.Margin = new System.Windows.Forms.Padding(4);
+            this.rdJuridica.Name = "rdJuridica";
+            this.rdJuridica.Size = new System.Drawing.Size(75, 20);
+            this.rdJuridica.TabIndex = 9;
+            this.rdJuridica.Text = "Jurídica";
+            this.rdJuridica.UseVisualStyleBackColor = true;
+            this.rdJuridica.CheckedChanged += new System.EventHandler(this.rdJuridica_CheckedChanged);
+            // 
+            // rdFisica
+            // 
+            this.rdFisica.AutoSize = true;
+            this.rdFisica.Checked = true;
+            this.rdFisica.Location = new System.Drawing.Point(8, 20);
+            this.rdFisica.Margin = new System.Windows.Forms.Padding(4);
+            this.rdFisica.Name = "rdFisica";
+            this.rdFisica.Size = new System.Drawing.Size(64, 20);
+            this.rdFisica.TabIndex = 8;
+            this.rdFisica.TabStop = true;
+            this.rdFisica.Text = "Física";
+            this.rdFisica.UseVisualStyleBackColor = true;
+            this.rdFisica.CheckedChanged += new System.EventHandler(this.rdFisica_CheckedChanged);
+            // 
             // gpEnderecoCadastro
             // 
-            this.gpEnderecoCadastro.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gpEnderecoCadastro.BackColor = System.Drawing.SystemColors.ControlDark;
             this.gpEnderecoCadastro.Controls.Add(this.mskCEP);
             this.gpEnderecoCadastro.Controls.Add(this.txtBairro);
             this.gpEnderecoCadastro.Controls.Add(this.txtNumero);
@@ -139,11 +192,12 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.gpEnderecoCadastro.Controls.Add(this.label5);
             this.gpEnderecoCadastro.Controls.Add(this.label4);
             this.gpEnderecoCadastro.Controls.Add(this.label3);
-            this.gpEnderecoCadastro.Location = new System.Drawing.Point(8, 174);
+            this.gpEnderecoCadastro.ForeColor = System.Drawing.Color.Black;
+            this.gpEnderecoCadastro.Location = new System.Drawing.Point(16, 188);
             this.gpEnderecoCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.gpEnderecoCadastro.Name = "gpEnderecoCadastro";
             this.gpEnderecoCadastro.Padding = new System.Windows.Forms.Padding(4);
-            this.gpEnderecoCadastro.Size = new System.Drawing.Size(461, 117);
+            this.gpEnderecoCadastro.Size = new System.Drawing.Size(477, 117);
             this.gpEnderecoCadastro.TabIndex = 11;
             this.gpEnderecoCadastro.TabStop = false;
             this.gpEnderecoCadastro.Text = "Endereço/Contato";
@@ -201,7 +255,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(143, 31);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
@@ -212,7 +266,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(249, 30);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
@@ -223,7 +277,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(7, 85);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -234,7 +288,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(305, 58);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -245,7 +299,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(8, 58);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -256,7 +310,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(8, 31);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -264,69 +318,10 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.label3.TabIndex = 5;
             this.label3.Text = "CEP";
             // 
-            // lblCGCCPF
-            // 
-            this.lblCGCCPF.AutoSize = true;
-            this.lblCGCCPF.Location = new System.Drawing.Point(39, 70);
-            this.lblCGCCPF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCGCCPF.Name = "lblCGCCPF";
-            this.lblCGCCPF.Size = new System.Drawing.Size(33, 16);
-            this.lblCGCCPF.TabIndex = 10;
-            this.lblCGCCPF.Text = "CPF";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 38);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Nome";
-            // 
-            // gpTipoPessoa
-            // 
-            this.gpTipoPessoa.Controls.Add(this.rdJuridica);
-            this.gpTipoPessoa.Controls.Add(this.rdFisica);
-            this.gpTipoPessoa.Location = new System.Drawing.Point(232, 71);
-            this.gpTipoPessoa.Margin = new System.Windows.Forms.Padding(4);
-            this.gpTipoPessoa.Name = "gpTipoPessoa";
-            this.gpTipoPessoa.Padding = new System.Windows.Forms.Padding(4);
-            this.gpTipoPessoa.Size = new System.Drawing.Size(187, 52);
-            this.gpTipoPessoa.TabIndex = 8;
-            this.gpTipoPessoa.TabStop = false;
-            this.gpTipoPessoa.Text = "Tipo Pessoa";
-            // 
-            // rdJuridica
-            // 
-            this.rdJuridica.AutoSize = true;
-            this.rdJuridica.Location = new System.Drawing.Point(88, 20);
-            this.rdJuridica.Margin = new System.Windows.Forms.Padding(4);
-            this.rdJuridica.Name = "rdJuridica";
-            this.rdJuridica.Size = new System.Drawing.Size(75, 20);
-            this.rdJuridica.TabIndex = 9;
-            this.rdJuridica.Text = "Jurídica";
-            this.rdJuridica.UseVisualStyleBackColor = true;
-            this.rdJuridica.CheckedChanged += new System.EventHandler(this.rdJuridica_CheckedChanged);
-            // 
-            // rdFisica
-            // 
-            this.rdFisica.AutoSize = true;
-            this.rdFisica.Checked = true;
-            this.rdFisica.Location = new System.Drawing.Point(8, 20);
-            this.rdFisica.Margin = new System.Windows.Forms.Padding(4);
-            this.rdFisica.Name = "rdFisica";
-            this.rdFisica.Size = new System.Drawing.Size(64, 20);
-            this.rdFisica.TabIndex = 8;
-            this.rdFisica.TabStop = true;
-            this.rdFisica.Text = "Física";
-            this.rdFisica.UseVisualStyleBackColor = true;
-            this.rdFisica.CheckedChanged += new System.EventHandler(this.rdFisica_CheckedChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 104);
+            this.label1.Location = new System.Drawing.Point(11, 30);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 16);
@@ -336,7 +331,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // cboConvenio
             // 
             this.cboConvenio.FormattingEnabled = true;
-            this.cboConvenio.Location = new System.Drawing.Point(85, 101);
+            this.cboConvenio.Location = new System.Drawing.Point(83, 27);
             this.cboConvenio.Margin = new System.Windows.Forms.Padding(4);
             this.cboConvenio.Name = "cboConvenio";
             this.cboConvenio.Size = new System.Drawing.Size(137, 24);
@@ -345,14 +340,35 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // panelControles
             // 
             this.panelControles.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panelControles.Controls.Add(this.lblInfo);
+            this.panelControles.Controls.Add(this.lblLimpar);
+            this.panelControles.Controls.Add(this.lblSalvar);
+            this.panelControles.Controls.Add(this.lblExcluir);
+            this.panelControles.Controls.Add(this.button1);
             this.panelControles.Controls.Add(this.btnSalvar);
             this.panelControles.Controls.Add(this.btnExcluir);
             this.panelControles.Controls.Add(this.btnInfo);
-            this.panelControles.Location = new System.Drawing.Point(16, 455);
+            this.panelControles.Location = new System.Drawing.Point(16, 431);
             this.panelControles.Margin = new System.Windows.Forms.Padding(4);
             this.panelControles.Name = "panelControles";
-            this.panelControles.Size = new System.Drawing.Size(1035, 89);
+            this.panelControles.Size = new System.Drawing.Size(477, 237);
             this.panelControles.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Transparent;
+            this.button1.Location = new System.Drawing.Point(289, 17);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(71, 59);
+            this.button1.TabIndex = 3;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // btnSalvar
             // 
@@ -362,10 +378,10 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.btnSalvar.FlatAppearance.BorderSize = 0;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnSalvar.Location = new System.Drawing.Point(15, 6);
+            this.btnSalvar.Location = new System.Drawing.Point(201, 17);
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(136, 80);
+            this.btnSalvar.Size = new System.Drawing.Size(56, 59);
             this.btnSalvar.TabIndex = 2;
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -379,10 +395,10 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.ForeColor = System.Drawing.Color.Transparent;
-            this.btnExcluir.Location = new System.Drawing.Point(170, 6);
+            this.btnExcluir.Location = new System.Drawing.Point(93, 17);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(134, 80);
+            this.btnExcluir.Size = new System.Drawing.Size(75, 59);
             this.btnExcluir.TabIndex = 1;
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -392,10 +408,12 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.btnInfo.BackColor = System.Drawing.Color.Transparent;
             this.btnInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnInfo.BackgroundImage")));
             this.btnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnInfo.Location = new System.Drawing.Point(939, 5);
+            this.btnInfo.FlatAppearance.BorderSize = 0;
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfo.Location = new System.Drawing.Point(181, 131);
             this.btnInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(92, 80);
+            this.btnInfo.Size = new System.Drawing.Size(91, 74);
             this.btnInfo.TabIndex = 0;
             this.btnInfo.UseVisualStyleBackColor = false;
             // 
@@ -406,7 +424,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.gpConteudo.Margin = new System.Windows.Forms.Padding(4);
             this.gpConteudo.Name = "gpConteudo";
             this.gpConteudo.Padding = new System.Windows.Forms.Padding(4);
-            this.gpConteudo.Size = new System.Drawing.Size(548, 416);
+            this.gpConteudo.Size = new System.Drawing.Size(980, 636);
             this.gpConteudo.TabIndex = 5;
             this.gpConteudo.TabStop = false;
             // 
@@ -414,13 +432,14 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // 
             this.gridPacientes.AllowUserToAddRows = false;
             this.gridPacientes.AllowUserToOrderColumns = true;
+            this.gridPacientes.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.gridPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridPacientes.Location = new System.Drawing.Point(0, 10);
             this.gridPacientes.Margin = new System.Windows.Forms.Padding(4);
             this.gridPacientes.Name = "gridPacientes";
             this.gridPacientes.ReadOnly = true;
             this.gridPacientes.RowHeadersWidth = 51;
-            this.gridPacientes.Size = new System.Drawing.Size(546, 404);
+            this.gridPacientes.Size = new System.Drawing.Size(980, 626);
             this.gridPacientes.TabIndex = 0;
             // 
             // menuStrip1
@@ -432,7 +451,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1494, 28);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -464,14 +483,105 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.aboutToolStripMenuItem.Text = "About";
             // 
+            // gpPacienteCadastro
+            // 
+            this.gpPacienteCadastro.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.gpPacienteCadastro.Controls.Add(this.txtPacienteRisco);
+            this.gpPacienteCadastro.Controls.Add(this.lblPacienteRisco);
+            this.gpPacienteCadastro.Controls.Add(this.txtNmrProntuario);
+            this.gpPacienteCadastro.Controls.Add(this.lblNmrProntuario);
+            this.gpPacienteCadastro.Controls.Add(this.label1);
+            this.gpPacienteCadastro.Controls.Add(this.cboConvenio);
+            this.gpPacienteCadastro.Location = new System.Drawing.Point(16, 313);
+            this.gpPacienteCadastro.Margin = new System.Windows.Forms.Padding(4);
+            this.gpPacienteCadastro.Name = "gpPacienteCadastro";
+            this.gpPacienteCadastro.Padding = new System.Windows.Forms.Padding(4);
+            this.gpPacienteCadastro.Size = new System.Drawing.Size(477, 110);
+            this.gpPacienteCadastro.TabIndex = 21;
+            this.gpPacienteCadastro.TabStop = false;
+            this.gpPacienteCadastro.Text = "Paciente";
+            // 
+            // txtPacienteRisco
+            // 
+            this.txtPacienteRisco.Location = new System.Drawing.Point(116, 70);
+            this.txtPacienteRisco.Name = "txtPacienteRisco";
+            this.txtPacienteRisco.Size = new System.Drawing.Size(97, 22);
+            this.txtPacienteRisco.TabIndex = 8;
+            // 
+            // lblPacienteRisco
+            // 
+            this.lblPacienteRisco.AutoSize = true;
+            this.lblPacienteRisco.Location = new System.Drawing.Point(11, 73);
+            this.lblPacienteRisco.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPacienteRisco.Name = "lblPacienteRisco";
+            this.lblPacienteRisco.Size = new System.Drawing.Size(98, 16);
+            this.lblPacienteRisco.TabIndex = 7;
+            this.lblPacienteRisco.Text = "Paciente Risco";
+            // 
+            // txtNmrProntuario
+            // 
+            this.txtNmrProntuario.Location = new System.Drawing.Point(340, 27);
+            this.txtNmrProntuario.Name = "txtNmrProntuario";
+            this.txtNmrProntuario.Size = new System.Drawing.Size(97, 22);
+            this.txtNmrProntuario.TabIndex = 6;
+            // 
+            // lblNmrProntuario
+            // 
+            this.lblNmrProntuario.AutoSize = true;
+            this.lblNmrProntuario.Location = new System.Drawing.Point(237, 30);
+            this.lblNmrProntuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNmrProntuario.Name = "lblNmrProntuario";
+            this.lblNmrProntuario.Size = new System.Drawing.Size(96, 16);
+            this.lblNmrProntuario.TabIndex = 5;
+            this.lblNmrProntuario.Text = "Nmr Prontuário";
+            // 
+            // lblExcluir
+            // 
+            this.lblExcluir.AutoSize = true;
+            this.lblExcluir.Location = new System.Drawing.Point(107, 80);
+            this.lblExcluir.Name = "lblExcluir";
+            this.lblExcluir.Size = new System.Drawing.Size(46, 16);
+            this.lblExcluir.TabIndex = 4;
+            this.lblExcluir.Text = "Excluir";
+            // 
+            // lblSalvar
+            // 
+            this.lblSalvar.AutoSize = true;
+            this.lblSalvar.Location = new System.Drawing.Point(206, 80);
+            this.lblSalvar.Name = "lblSalvar";
+            this.lblSalvar.Size = new System.Drawing.Size(46, 16);
+            this.lblSalvar.TabIndex = 5;
+            this.lblSalvar.Text = "Salvar";
+            // 
+            // lblLimpar
+            // 
+            this.lblLimpar.AutoSize = true;
+            this.lblLimpar.Location = new System.Drawing.Point(305, 80);
+            this.lblLimpar.Name = "lblLimpar";
+            this.lblLimpar.Size = new System.Drawing.Size(48, 16);
+            this.lblLimpar.TabIndex = 6;
+            this.lblLimpar.Text = "Limpar";
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Location = new System.Drawing.Point(186, 209);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(81, 16);
+            this.lblInfo.TabIndex = 7;
+            this.lblInfo.Text = "Informações";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(1494, 681);
+            this.Controls.Add(this.gpPacienteCadastro);
             this.Controls.Add(this.gpConteudo);
             this.Controls.Add(this.panelControles);
             this.Controls.Add(this.gpFormCadastro);
+            this.Controls.Add(this.gpEnderecoCadastro);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -480,15 +590,18 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gpFormCadastro.ResumeLayout(false);
             this.gpFormCadastro.PerformLayout();
-            this.gpEnderecoCadastro.ResumeLayout(false);
-            this.gpEnderecoCadastro.PerformLayout();
             this.gpTipoPessoa.ResumeLayout(false);
             this.gpTipoPessoa.PerformLayout();
+            this.gpEnderecoCadastro.ResumeLayout(false);
+            this.gpEnderecoCadastro.PerformLayout();
             this.panelControles.ResumeLayout(false);
+            this.panelControles.PerformLayout();
             this.gpConteudo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridPacientes)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.gpPacienteCadastro.ResumeLayout(false);
+            this.gpPacienteCadastro.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,12 +631,8 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox mskCEP;
-        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Panel panelControles;
-        private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.GroupBox gpConteudo;
-        private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.DataGridView gridPacientes;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -531,6 +640,19 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.MaskedTextBox txtCGCCPF;
+        private System.Windows.Forms.GroupBox gpPacienteCadastro;
+        private System.Windows.Forms.TextBox txtNmrProntuario;
+        private System.Windows.Forms.Label lblNmrProntuario;
+        private System.Windows.Forms.TextBox txtPacienteRisco;
+        private System.Windows.Forms.Label lblPacienteRisco;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnInfo;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblSalvar;
+        private System.Windows.Forms.Label lblExcluir;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label lblLimpar;
     }
 }
 

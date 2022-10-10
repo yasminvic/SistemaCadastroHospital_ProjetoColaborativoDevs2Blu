@@ -138,8 +138,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         {
 
         }
+
         #endregion
-
-
     }
 }

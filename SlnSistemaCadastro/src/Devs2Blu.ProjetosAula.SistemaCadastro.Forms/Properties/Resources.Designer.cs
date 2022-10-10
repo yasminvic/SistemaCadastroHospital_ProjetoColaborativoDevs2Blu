@@ -59,35 +59,5 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnIconExcluir {
-            get {
-                object obj = ResourceManager.GetObject("btnIconExcluir", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnIconExcluir1 {
-            get {
-                object obj = ResourceManager.GetObject("btnIconExcluir1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnIconInfo {
-            get {
-                object obj = ResourceManager.GetObject("btnIconInfo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
