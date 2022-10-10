@@ -1,7 +1,7 @@
 ﻿
 namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
 {
-    partial class Form1
+    partial class FormCadastro
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastro));
             this.gpFormCadastro = new System.Windows.Forms.GroupBox();
             this.txtCGCCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -54,7 +54,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.cboConvenio = new System.Windows.Forms.ComboBox();
             this.panelControles = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
@@ -344,7 +344,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.panelControles.Controls.Add(this.lblLimpar);
             this.panelControles.Controls.Add(this.lblSalvar);
             this.panelControles.Controls.Add(this.lblExcluir);
-            this.panelControles.Controls.Add(this.button1);
+            this.panelControles.Controls.Add(this.btnLimpar);
             this.panelControles.Controls.Add(this.btnSalvar);
             this.panelControles.Controls.Add(this.btnExcluir);
             this.panelControles.Controls.Add(this.btnInfo);
@@ -354,21 +354,22 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.panelControles.Size = new System.Drawing.Size(477, 237);
             this.panelControles.TabIndex = 4;
             // 
-            // button1
+            // btnLimpar
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(289, 17);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 59);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnLimpar.BackColor = System.Drawing.Color.Transparent;
+            this.btnLimpar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLimpar.BackgroundImage")));
+            this.btnLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLimpar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.btnLimpar.FlatAppearance.BorderSize = 0;
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnLimpar.Location = new System.Drawing.Point(289, 17);
+            this.btnLimpar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(71, 59);
+            this.btnLimpar.TabIndex = 3;
+            this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
@@ -572,7 +573,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.lblInfo.TabIndex = 7;
             this.lblInfo.Text = "Informações";
             // 
-            // Form1
+            // FormCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -585,7 +586,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "FormCadastro";
             this.Text = "+Devs2Blu - Sistema de Cadastro Hospitalar";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gpFormCadastro.ResumeLayout(false);
@@ -648,7 +649,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnInfo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Label lblSalvar;
         private System.Windows.Forms.Label lblExcluir;
         private System.Windows.Forms.Label lblInfo;

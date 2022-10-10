@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
 {
-    internal class PessoaRepository
+    public class PessoaRepository
     {
-        public MySqlDataReader FetchAll()
+        public static MySqlDataReader FetchAll()
         {
             MySqlConnection conn = ConnectionMySQL.GetConnection();
 
@@ -50,29 +50,9 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
                 throw;
             }
         }
-        public static MySqlDataReader GetPessoas()
-        {
-            MySqlConnection conn = ConnectionMySQL.GetConnection();
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(SQL_SELECT_PESSOAS, conn);
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                return dataReader;
-            }
-            catch (MySqlException myExc)
-            {
-                MessageBox.Show(myExc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
-            }
-        }
-
 
         #region SQL's
         private const String SQL_SELECT_PESSOA = "SELECT * FROM pessoa";
-
-        private const String SQL_SELECT_PESSOAS = @"SELECT id, nome, cgccpf, flstatus from pessoa";
 
         private const String SQL_INSERT_PESSOA = @"INSERT INTO pessoa
 (nome,

@@ -1,23 +1,26 @@
 ﻿using Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data;
+using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Enum;
 using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Model;
 using MySql.Data.MySqlClient;
 using System;
+using System.Net.Http.Headers;
 using System.Security.Permissions;
 using System.Windows.Forms;
 
 namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
 {
-    public partial class Form1 : Form
+    public partial class FormCadastro : Form
     {
         public MySqlConnection Conn { get; set; }
         public ConvenioRepository ConvenioRepository = new ConvenioRepository();
         public PacienteRepository PacienteRepository = new PacienteRepository();
         public EnderecoRepository EnderecoRepository = new EnderecoRepository();
+        public PessoaRepository PessoaRepository = new PessoaRepository();
 
         public Random random = new Random();
         public DateTime dateTime = new DateTime();
 
-        public Form1()
+        public FormCadastro()
         {
             InitializeComponent();
         }
@@ -30,9 +33,10 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             cboConvenio.DisplayMember = "nome";
             cboConvenio.ValueMember = "id";
         }
+
         private void PopulaDataGridPessoa()
         {
-            var listPessoa = PessoaRepository.GetPessoas();
+            var listPessoa = PessoaRepository.FetchAll();
             gridPacientes.DataSource = new BindingSource(listPessoa, null);
         }
 
@@ -77,6 +81,24 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
 
             return true;
         }
+
+        private void LimparForm()
+        {
+            txtNome.Clear();
+            txtCGCCPF.Clear();
+            rdFisica.Checked = true;
+
+            mskCEP.Clear();
+            //cboUF
+            txtCidade.Clear();
+            txtRua.Clear();
+            txtBairro.Clear();
+            txtNumero.Clear();
+
+            //cboConvenio
+            txtPacienteRisco.Clear();
+            txtNmrProntuario.Clear();
+        }
         #endregion
 
         #region Events
@@ -86,17 +108,22 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             PopulaDataGridPessoa();
         }
 
+        #region TipoPessoa
+        public TipoPessoa tipoPessoa { get; set; } 
         private void rdFisica_CheckedChanged(object sender, EventArgs e)
         {
             lblCGCCPF.Text = "CPF";
             lblCGCCPF.Visible = true;
+            tipoPessoa = TipoPessoa.PF;
         }
 
         private void rdJuridica_CheckedChanged(object sender, EventArgs e)
         {
             lblCGCCPF.Text = "CNPJ";
             lblCGCCPF.Visible = true;
+            tipoPessoa = TipoPessoa.PJ;
         }
+        #endregion
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -105,7 +132,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
                 Pessoa pessoa = new Pessoa();
                 pessoa.Nome = txtNome.Text;
                 pessoa.CGCCPF = txtCGCCPF.Text.Replace(",", ".");
-                //pessoa.TipoPessoa = gpTipoPessoa.
+                pessoa.TipoPessoa = tipoPessoa;
 
                 Endereco endereco = new Endereco();
                 endereco.CEP = mskCEP.Text.Replace(",", ".");
@@ -116,11 +143,12 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
                 endereco.Numero = Int32.Parse(txtNumero.Text);
 
                 Paciente paciente = new Paciente();
-                paciente.Pessoa.Id = pessoa.Id;
                 paciente.Convenio.Id = (int)cboConvenio.SelectedValue;
-                paciente.NrProntuario = Int32.Parse($"{dateTime.Day}" + $"{random.Next(100, 999)}");
+                //paciente.NrProntuario = Int32.Parse($"{dateTime.Day}" + $"{random.Next(100, 999)}");
+                paciente.NrProntuario = Int32.Parse(txtNmrProntuario.Text);
+                paciente.PacienteRisco = txtPacienteRisco.Text;
 
-                int idPessoa = PessoaRepository.SavePessoa(pessoa);   // Salva a pessoa e retorna o seu id
+                int idPessoa = PessoaRepository.SavePessoa(pessoa);   // Salva a pessoa e retorna o seu ID
                 paciente.Pessoa.Id = idPessoa;
                 EnderecoRepository.SaveEndereco(endereco, idPessoa);  // Salva o endereço
                 PacienteRepository.SavePaciente(paciente);            // Salva o Paciente
@@ -136,9 +164,14 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            FormExcluir formExcluir = new FormExcluir();
+            formExcluir.Show();
         }
 
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            LimparForm();
+        }
         #endregion
     }
 }
