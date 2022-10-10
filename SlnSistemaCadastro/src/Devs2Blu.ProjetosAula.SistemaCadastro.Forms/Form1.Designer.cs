@@ -96,7 +96,7 @@
             this.gpFormCadastro.Controls.Add(this.cboConvenio);
             this.gpFormCadastro.Location = new System.Drawing.Point(12, 46);
             this.gpFormCadastro.Name = "gpFormCadastro";
-            this.gpFormCadastro.Size = new System.Drawing.Size(1278, 109);
+            this.gpFormCadastro.Size = new System.Drawing.Size(1272, 109);
             this.gpFormCadastro.TabIndex = 2;
             this.gpFormCadastro.TabStop = false;
             this.gpFormCadastro.Text = "Formulário de Cadastro";
@@ -173,7 +173,7 @@
             this.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(1208, 52);
+            this.btnExcluir.Location = new System.Drawing.Point(1208, 83);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(29, 26);
             this.btnExcluir.TabIndex = 16;
@@ -186,7 +186,7 @@
             this.btnLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLimpar.FlatAppearance.BorderSize = 0;
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpar.Location = new System.Drawing.Point(1173, 52);
+            this.btnLimpar.Location = new System.Drawing.Point(1173, 83);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(29, 26);
             this.btnLimpar.TabIndex = 15;
@@ -199,7 +199,7 @@
             this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSalvar.FlatAppearance.BorderSize = 0;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalvar.Location = new System.Drawing.Point(1243, 52);
+            this.btnSalvar.Location = new System.Drawing.Point(1243, 83);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(29, 26);
             this.btnSalvar.TabIndex = 14;
@@ -482,8 +482,9 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 

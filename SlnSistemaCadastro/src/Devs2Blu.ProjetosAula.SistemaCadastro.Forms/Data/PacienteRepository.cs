@@ -86,7 +86,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
         }
 
         #region SQLs
-        private const String SQL_INSERT_PESSOA = @"INSERT INTO pessoa
+        private const string SQL_INSERT_PESSOA = @"INSERT INTO pessoa
 (nome,
 cgccpf,
 tipopessoa,
@@ -96,7 +96,7 @@ VALUES
 @cgccpf,
 @tipopessoa,
 'A')";
-        private const String SQL_INSERT_PACIENTE = @"INSERT INTO paciente
+        private const string SQL_INSERT_PACIENTE = @"INSERT INTO paciente
 (id_pessoa,
 id_convenio,
 numero_prontuario,
@@ -110,9 +110,9 @@ VALUES
 @paciente_risco,
 'A',
 0)";
-        private const String SQL_SELECT_PESSOA = @"SELECT id, nome, cgccpf, tipopessoa, flstatus FROM pessoa";
-        private const String SQL_SELECT_PACIENTE = @"SELECT id_pessoa, id_convenio, numero_prontuario, paciente_risco, flstatus, flobito FROM paciente";
-        private const String SQL_SELECT_PESSOA_ENDERECO = @"SELECT * FROM pessoa p JOIN endereco e ON p.id = e.id_pessoa";
+        private const string SQL_SELECT_PESSOA = @"SELECT id, nome, cgccpf, tipopessoa, flstatus FROM pessoa";
+        private const string SQL_SELECT_PACIENTE = @"SELECT id_pessoa, id_convenio, numero_prontuario, paciente_risco, flstatus, flobito FROM paciente";
+        private const string SQL_SELECT_PESSOA_ENDERECO = @"SELECT p.ID, p.Nome, p.CGCCPF, p.TipoPessoa, p.FlStatus, e.CEP, e.Rua, e.Numero, e.Bairro, e.Cidade, e.UF FROM pessoa p JOIN endereco e ON p.id = e.id_pessoa";
         #endregion
     }
 }

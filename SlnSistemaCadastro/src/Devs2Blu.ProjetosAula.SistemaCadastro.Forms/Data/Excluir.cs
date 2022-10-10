@@ -13,14 +13,24 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
     {
         public Excluir excluir { get; set; }
 
-        public Excluir ExcluirPaciente(Paciente paciente)
+        public Excluir ExcluirPessoa(Pessoa pessoa)
         {
             try
             {
                 MySqlConnection conn = ConnectionMySQL.GetConnection();
-                MySqlCommand cmd = new MySqlCommand(SQL_DELETE_PACIENTE + paciente.Id, conn);
 
+                MySqlCommand cmdEndereco = new MySqlCommand(SQL_DELETE_ENDERECO, conn);
+                cmdEndereco.Parameters.Add("@id", MySqlDbType.Int32).Value = pessoa.Id;
+                cmdEndereco.ExecuteNonQuery();
+
+                MySqlCommand cmdPaciente = new MySqlCommand(SQL_DELETE_PACIENTE, conn);
+                cmdPaciente.Parameters.Add("@id", MySqlDbType.Int32).Value = pessoa.Id;
+                cmdPaciente.ExecuteNonQuery();
+
+                MySqlCommand cmd = new MySqlCommand(SQL_DELETE_PESSOA, conn);
+                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = pessoa.Id;
                 cmd.ExecuteNonQuery();
+
                 return excluir;
             }
             catch (MySqlException myExc)
@@ -30,6 +40,8 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
             }
         }
 
-        private const String SQL_DELETE_PACIENTE = @"DELETE FROM paciente WHERE id = ";
+        private const string SQL_DELETE_PESSOA = @"DELETE FROM pessoa WHERE id = @id";
+        private const string SQL_DELETE_ENDERECO = @"DELETE FROM endereco WHERE id_pessoa = @id";
+        private const string SQL_DELETE_PACIENTE = @"DELETE FROM paciente WHERE id_pessoa = @id";
     }
 }

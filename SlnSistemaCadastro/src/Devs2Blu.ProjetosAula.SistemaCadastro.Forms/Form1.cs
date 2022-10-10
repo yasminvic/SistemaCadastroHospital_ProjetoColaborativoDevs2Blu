@@ -34,7 +34,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             cboConvenio.DisplayMember = "nome";
             cboConvenio.ValueMember = "id";
         }
-        private void PopulaDataGridPessoa()
+        public void PopulaDataGridPessoa()
         {
             var listPacientes = PacienteRepository.GetPessoas();
             gridPacientes.DataSource = new BindingSource(listPacientes, null);
@@ -99,7 +99,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
 
             return true;
         }
-        private void LimpaForms()
+        public void LimpaForms()
         {
             txtNome.Text = "";
             txtCGCCPF.Text = "";
@@ -185,7 +185,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
 
                 if (pacienteResult.Id > 0)
                 {
-                    MessageBox.Show($"Paciente {paciente.Pessoa.Id} - {pessoa.Nome} salvo com sucesso!", "Adicionar paciente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"Pessoa {pessoa.Id} - {pessoa.Nome} salvo com sucesso!", "Adicionar paciente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     PopulaDataGridPessoa();
                     LimpaForms();
                 }
@@ -194,6 +194,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             LimpaForms();
+            PopulaDataGridPessoa();
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -203,5 +204,9 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
 
         #endregion
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
