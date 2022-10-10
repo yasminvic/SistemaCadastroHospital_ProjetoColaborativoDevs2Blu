@@ -54,6 +54,10 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.cboConvenio = new System.Windows.Forms.ComboBox();
             this.panelControles = new System.Windows.Forms.Panel();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.lblLimpar = new System.Windows.Forms.Label();
+            this.lblSalvar = new System.Windows.Forms.Label();
+            this.lblExcluir = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -70,10 +74,6 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.lblPacienteRisco = new System.Windows.Forms.Label();
             this.txtNmrProntuario = new System.Windows.Forms.TextBox();
             this.lblNmrProntuario = new System.Windows.Forms.Label();
-            this.lblExcluir = new System.Windows.Forms.Label();
-            this.lblSalvar = new System.Windows.Forms.Label();
-            this.lblLimpar = new System.Windows.Forms.Label();
-            this.lblInfo = new System.Windows.Forms.Label();
             this.gpFormCadastro.SuspendLayout();
             this.gpTipoPessoa.SuspendLayout();
             this.gpEnderecoCadastro.SuspendLayout();
@@ -206,10 +206,11 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // 
             this.mskCEP.Location = new System.Drawing.Point(52, 27);
             this.mskCEP.Margin = new System.Windows.Forms.Padding(4);
-            this.mskCEP.Mask = "00.000-00";
+            this.mskCEP.Mask = "00.000-000";
             this.mskCEP.Name = "mskCEP";
             this.mskCEP.Size = new System.Drawing.Size(84, 22);
             this.mskCEP.TabIndex = 20;
+            this.mskCEP.TextChanged += new System.EventHandler(this.mskCEP_TextChanged);
             // 
             // txtBairro
             // 
@@ -238,6 +239,34 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // cboUF
             // 
             this.cboUF.FormattingEnabled = true;
+            this.cboUF.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PB",
+            "PR",
+            "PE",
+            "PI",
+            "RJ",
+            "RN",
+            "RS",
+            "RO",
+            "RR",
+            "SC",
+            "SP",
+            "SE",
+            "TO",
+            "DF"});
             this.cboUF.Location = new System.Drawing.Point(172, 26);
             this.cboUF.Margin = new System.Windows.Forms.Padding(4);
             this.cboUF.Name = "cboUF";
@@ -353,6 +382,43 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.panelControles.Name = "panelControles";
             this.panelControles.Size = new System.Drawing.Size(477, 237);
             this.panelControles.TabIndex = 4;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Location = new System.Drawing.Point(186, 209);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(81, 16);
+            this.lblInfo.TabIndex = 7;
+            this.lblInfo.Text = "Informações";
+            // 
+            // lblLimpar
+            // 
+            this.lblLimpar.AutoSize = true;
+            this.lblLimpar.Location = new System.Drawing.Point(305, 80);
+            this.lblLimpar.Name = "lblLimpar";
+            this.lblLimpar.Size = new System.Drawing.Size(48, 16);
+            this.lblLimpar.TabIndex = 6;
+            this.lblLimpar.Text = "Limpar";
+            // 
+            // lblSalvar
+            // 
+            this.lblSalvar.AutoSize = true;
+            this.lblSalvar.Location = new System.Drawing.Point(206, 80);
+            this.lblSalvar.Name = "lblSalvar";
+            this.lblSalvar.Size = new System.Drawing.Size(46, 16);
+            this.lblSalvar.TabIndex = 5;
+            this.lblSalvar.Text = "Salvar";
+            // 
+            // lblExcluir
+            // 
+            this.lblExcluir.AutoSize = true;
+            this.lblExcluir.Location = new System.Drawing.Point(107, 80);
+            this.lblExcluir.Name = "lblExcluir";
+            this.lblExcluir.Size = new System.Drawing.Size(46, 16);
+            this.lblExcluir.TabIndex = 4;
+            this.lblExcluir.Text = "Excluir";
             // 
             // btnLimpar
             // 
@@ -536,43 +602,6 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.lblNmrProntuario.TabIndex = 5;
             this.lblNmrProntuario.Text = "Nmr Prontuário";
             // 
-            // lblExcluir
-            // 
-            this.lblExcluir.AutoSize = true;
-            this.lblExcluir.Location = new System.Drawing.Point(107, 80);
-            this.lblExcluir.Name = "lblExcluir";
-            this.lblExcluir.Size = new System.Drawing.Size(46, 16);
-            this.lblExcluir.TabIndex = 4;
-            this.lblExcluir.Text = "Excluir";
-            // 
-            // lblSalvar
-            // 
-            this.lblSalvar.AutoSize = true;
-            this.lblSalvar.Location = new System.Drawing.Point(206, 80);
-            this.lblSalvar.Name = "lblSalvar";
-            this.lblSalvar.Size = new System.Drawing.Size(46, 16);
-            this.lblSalvar.TabIndex = 5;
-            this.lblSalvar.Text = "Salvar";
-            // 
-            // lblLimpar
-            // 
-            this.lblLimpar.AutoSize = true;
-            this.lblLimpar.Location = new System.Drawing.Point(305, 80);
-            this.lblLimpar.Name = "lblLimpar";
-            this.lblLimpar.Size = new System.Drawing.Size(48, 16);
-            this.lblLimpar.TabIndex = 6;
-            this.lblLimpar.Text = "Limpar";
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(186, 209);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(81, 16);
-            this.lblInfo.TabIndex = 7;
-            this.lblInfo.Text = "Informações";
-            // 
             // FormCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -588,6 +617,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCadastro";
             this.Text = "+Devs2Blu - Sistema de Cadastro Hospitalar";
+            this.Activated += new System.EventHandler(this.FormCadastro_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gpFormCadastro.ResumeLayout(false);
             this.gpFormCadastro.PerformLayout();

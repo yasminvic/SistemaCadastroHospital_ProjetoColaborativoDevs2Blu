@@ -3,8 +3,7 @@ using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Enum;
 using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Model;
 using MySql.Data.MySqlClient;
 using System;
-using System.Net.Http.Headers;
-using System.Security.Permissions;
+using Correios;
 using System.Windows.Forms;
 
 namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
@@ -44,40 +43,59 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         {
             if (txtNome.Text.Equals(""))
             {
+                MessageBox.Show("Por Favor, Informe seu Nome!");
                 return false;
             }
             if (txtCGCCPF.Text.Equals(""))
             {
+                MessageBox.Show("Por Favor, Informe seu CPF!");
                 return false;
             }
-            /*if (cboConvenio.SelectedIndex == -1)
+            if (cboConvenio.SelectedIndex == -1)
             {
+                MessageBox.Show("Por Favor, Informe seu Convenio!");
                 return false;
             }
             if (mskCEP.Text.Equals(""))
             {
+                MessageBox.Show("Por Favor, Informe seu CEP!");
                 return false;
             }
             if (cboUF.SelectedIndex == -1)
             {
+                MessageBox.Show("Por Favor, Informe seu UF!");
                 return false;
             }
             if (txtCidade.Text.Equals(""))
             {
+                MessageBox.Show("Por Favor, Informe sua Cidade!");
                 return false;
             }
             if (txtRua.Text.Equals(""))
             {
+                MessageBox.Show("Por Favor, Informe sua Rua!");
                 return false;
             }
             if (txtNumero.Text.Equals(""))
             {
+                MessageBox.Show("Por Favor, Informe seu Numero!");
                 return false;
             }
             if (txtBairro.Text.Equals(""))
             {
+                MessageBox.Show("Por Favor, Informe seu Bairro!");
                 return false;
-            }*/
+            }
+            if (txtNmrProntuario.Text.Equals(""))
+            {
+                MessageBox.Show("Por Favor, Informe o Numero de Prontuario!");
+                return false;
+            }
+            if (txtPacienteRisco.Text.Equals(""))
+            {
+                MessageBox.Show("Por Favor, Informe o Risco do Paciente!");
+                return false;
+            }
 
             return true;
         }
@@ -172,6 +190,35 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         {
             LimparForm();
         }
+
+        private void FormCadastro_Activated(object sender, EventArgs e)
+        {
+            PopulaDataGridPessoa();
+        }
+
+        private void mskCEP_TextChanged(object sender, EventArgs e)
+        {
+            if (mskCEP.Text.Length == 10)
+            {
+                try
+                {
+                    CorreiosApi correiosApi = new CorreiosApi();
+                    var retorno = correiosApi.consultaCEP(mskCEP.Text);
+                    txtBairro.Text = retorno.bairro;
+                    txtCidade.Text = retorno.cidade;
+                    txtRua.Text = retorno.end;
+                    cboUF.Text = retorno.uf;
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("CEP não encontrado!", erro.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mskCEP.Text = "";
+                    mskCEP.Focus();
+                }
+            }
+        }
         #endregion
+
+
     }
 }

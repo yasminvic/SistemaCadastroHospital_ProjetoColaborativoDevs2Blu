@@ -28,28 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblIdPaciente = new System.Windows.Forms.Label();
-            this.txtIdPaciente = new System.Windows.Forms.TextBox();
+            this.lblIdPessoa = new System.Windows.Forms.Label();
+            this.txtIdPessoa = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblIdPaciente
+            // lblIdPessoa
             // 
-            this.lblIdPaciente.AutoSize = true;
-            this.lblIdPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdPaciente.Location = new System.Drawing.Point(50, 9);
-            this.lblIdPaciente.Name = "lblIdPaciente";
-            this.lblIdPaciente.Size = new System.Drawing.Size(320, 20);
-            this.lblIdPaciente.TabIndex = 1;
-            this.lblIdPaciente.Text = "Digite o ID do paciente que deseja excluir";
+            this.lblIdPessoa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIdPessoa.AutoSize = true;
+            this.lblIdPessoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdPessoa.Location = new System.Drawing.Point(56, 9);
+            this.lblIdPessoa.Name = "lblIdPessoa";
+            this.lblIdPessoa.Size = new System.Drawing.Size(311, 20);
+            this.lblIdPessoa.TabIndex = 1;
+            this.lblIdPessoa.Text = "Digite o ID da pessoa que deseja excluir";
             // 
-            // txtIdPaciente
+            // txtIdPessoa
             // 
-            this.txtIdPaciente.Location = new System.Drawing.Point(160, 50);
-            this.txtIdPaciente.Name = "txtIdPaciente";
-            this.txtIdPaciente.Size = new System.Drawing.Size(100, 22);
-            this.txtIdPaciente.TabIndex = 2;
+            this.txtIdPessoa.Location = new System.Drawing.Point(160, 50);
+            this.txtIdPessoa.Name = "txtIdPessoa";
+            this.txtIdPessoa.Size = new System.Drawing.Size(100, 22);
+            this.txtIdPessoa.TabIndex = 2;
             // 
             // btnCancelar
             // 
@@ -59,6 +62,7 @@
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnExcluir
             // 
@@ -68,6 +72,7 @@
             this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // FormExcluir
             // 
@@ -76,8 +81,8 @@
             this.ClientSize = new System.Drawing.Size(432, 203);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.txtIdPaciente);
-            this.Controls.Add(this.lblIdPaciente);
+            this.Controls.Add(this.txtIdPessoa);
+            this.Controls.Add(this.lblIdPessoa);
             this.Name = "FormExcluir";
             this.Text = "Excluir";
             this.Load += new System.EventHandler(this.FormExcluir_Load);
@@ -88,8 +93,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblIdPaciente;
-        private System.Windows.Forms.TextBox txtIdPaciente;
+        private System.Windows.Forms.Label lblIdPessoa;
+        private System.Windows.Forms.TextBox txtIdPessoa;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnExcluir;
     }
