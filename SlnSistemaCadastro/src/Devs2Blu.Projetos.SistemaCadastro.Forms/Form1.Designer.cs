@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cboConvenio = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gpFormCadastro = new System.Windows.Forms.GroupBox();
+            this.txtRisco = new System.Windows.Forms.TextBox();
+            this.lblRisco = new System.Windows.Forms.Label();
             this.txtCGCCPF = new System.Windows.Forms.MaskedTextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -65,6 +68,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gpEndereco = new System.Windows.Forms.GroupBox();
             this.gridEndereco = new System.Windows.Forms.DataGridView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.gpFormCadastro.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.gpTipoPessoa.SuspendLayout();
@@ -96,6 +100,8 @@
             // 
             // gpFormCadastro
             // 
+            this.gpFormCadastro.Controls.Add(this.txtRisco);
+            this.gpFormCadastro.Controls.Add(this.lblRisco);
             this.gpFormCadastro.Controls.Add(this.txtCGCCPF);
             this.gpFormCadastro.Controls.Add(this.btnLimpar);
             this.gpFormCadastro.Controls.Add(this.txtNome);
@@ -105,12 +111,29 @@
             this.gpFormCadastro.Controls.Add(this.gpTipoPessoa);
             this.gpFormCadastro.Controls.Add(this.cboConvenio);
             this.gpFormCadastro.Controls.Add(this.label1);
-            this.gpFormCadastro.Location = new System.Drawing.Point(12, 155);
+            this.gpFormCadastro.Location = new System.Drawing.Point(12, 27);
             this.gpFormCadastro.Name = "gpFormCadastro";
             this.gpFormCadastro.Size = new System.Drawing.Size(456, 376);
             this.gpFormCadastro.TabIndex = 2;
             this.gpFormCadastro.TabStop = false;
             this.gpFormCadastro.Text = "Formulario de Cadastro";
+            // 
+            // txtRisco
+            // 
+            this.txtRisco.Location = new System.Drawing.Point(111, 160);
+            this.txtRisco.Name = "txtRisco";
+            this.txtRisco.Size = new System.Drawing.Size(138, 20);
+            this.txtRisco.TabIndex = 16;
+            // 
+            // lblRisco
+            // 
+            this.lblRisco.AutoSize = true;
+            this.lblRisco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRisco.Location = new System.Drawing.Point(24, 164);
+            this.lblRisco.Name = "lblRisco";
+            this.lblRisco.Size = new System.Drawing.Size(47, 16);
+            this.lblRisco.TabIndex = 14;
+            this.lblRisco.Text = "Risco";
             // 
             // txtCGCCPF
             // 
@@ -325,7 +348,7 @@
             this.gpTipoPessoa.Controls.Add(this.rdJuridica);
             this.gpTipoPessoa.Controls.Add(this.rdFisica);
             this.gpTipoPessoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpTipoPessoa.Location = new System.Drawing.Point(269, 74);
+            this.gpTipoPessoa.Location = new System.Drawing.Point(265, 57);
             this.gpTipoPessoa.Name = "gpTipoPessoa";
             this.gpTipoPessoa.Size = new System.Drawing.Size(158, 75);
             this.gpTipoPessoa.TabIndex = 5;
@@ -372,7 +395,7 @@
             // gpPaciente
             // 
             this.gpPaciente.Controls.Add(this.gridPacientes);
-            this.gpPaciente.Location = new System.Drawing.Point(486, 155);
+            this.gpPaciente.Location = new System.Drawing.Point(474, 27);
             this.gpPaciente.Name = "gpPaciente";
             this.gpPaciente.Size = new System.Drawing.Size(606, 376);
             this.gpPaciente.TabIndex = 3;
@@ -395,7 +418,7 @@
             this.panelControle.Controls.Add(this.btnExluir);
             this.panelControle.Controls.Add(this.btnSalvar);
             this.panelControle.Controls.Add(this.btnInfo);
-            this.panelControle.Location = new System.Drawing.Point(12, 549);
+            this.panelControle.Location = new System.Drawing.Point(12, 537);
             this.panelControle.Name = "panelControle";
             this.panelControle.Size = new System.Drawing.Size(962, 74);
             this.panelControle.TabIndex = 4;
@@ -426,7 +449,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1570, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1706, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -461,7 +484,7 @@
             // gpEndereco
             // 
             this.gpEndereco.Controls.Add(this.gridEndereco);
-            this.gpEndereco.Location = new System.Drawing.Point(1132, 155);
+            this.gpEndereco.Location = new System.Drawing.Point(1088, 27);
             this.gpEndereco.Name = "gpEndereco";
             this.gpEndereco.Size = new System.Drawing.Size(606, 376);
             this.gpEndereco.TabIndex = 4;
@@ -478,12 +501,18 @@
             this.gridEndereco.Size = new System.Drawing.Size(589, 348);
             this.gridEndereco.TabIndex = 0;
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1570, 639);
+            this.ClientSize = new System.Drawing.Size(1706, 639);
             this.Controls.Add(this.gpEndereco);
             this.Controls.Add(this.panelControle);
             this.Controls.Add(this.gpPaciente);
@@ -550,6 +579,9 @@
         private System.Windows.Forms.MaskedTextBox txtCGCCPF;
         private System.Windows.Forms.GroupBox gpEndereco;
         private System.Windows.Forms.DataGridView gridEndereco;
+        private System.Windows.Forms.TextBox txtRisco;
+        private System.Windows.Forms.Label lblRisco;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

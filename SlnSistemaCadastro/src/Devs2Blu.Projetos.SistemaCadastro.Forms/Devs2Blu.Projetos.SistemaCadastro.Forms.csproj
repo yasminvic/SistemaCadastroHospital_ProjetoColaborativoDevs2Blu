@@ -51,6 +51,7 @@
     <Compile Include="Data\ConvenioRepository.cs" />
     <Compile Include="Data\EnderecoRepository.cs" />
     <Compile Include="Data\PacienteRepositorry.cs" />
+    <Compile Include="Data\PessoaRepository.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -19,8 +19,9 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
     {
         public MySqlConnection Conn { get; set; }
         public ConvenioRepository ConvenioRepository = new ConvenioRepository();
+        public PessoaRepository PessoaRepository = new PessoaRepository();
         public PacienteRepositorry PacienteRepositorry = new PacienteRepositorry();
-        public MySqlException myExc { get; set; }
+        public EnderecoRepository EnderecoRepository = new EnderecoRepository();
 
         public Form1()
         {
@@ -39,22 +40,88 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
 
         private void PopulaDataGridPessoa()
         {
-            var listPessoa = PacienteRepositorry.GetPessoas();
+            var listPessoa = PessoaRepository.GetPessoas();
             gridPacientes.DataSource = new BindingSource(listPessoa, null);
+        }
+
+        private void PopulaGridEndereco()
+        {
+            var listEnderecos = EnderecoRepository.GetEndereco();
+            gridEndereco.DataSource = new BindingSource(listEnderecos, null);
         }
 
         private bool ValidaFormCadastro()
         {
-            if (txtNome.Text.Equals("")) return false;
-            if (txtCGCCPF.Text.Equals("")) return false;
-            /*if (cboConvenio.SelectedIndex == -1) return false;
-            if (mskCEP.Text.Equals("")) return false;
-            if (cboUF.SelectedIndex == -1) return false;
-            if (txtCidade.Text.Equals("")) return false;
-            if (txtRua.Text.Equals("")) return false;
-            if (txtNumero.Text.Equals("")) return false;
-            if (txtBairro.Text.Equals("")) return false;*/
+            if (txtNome.Text.Equals(""))
+            {
+                MessageBox.Show("Campo Nome não foi preenchido", "Cadastro incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cboConvenio.SelectedIndex == -1)
+            {
+                MessageBox.Show("Campo Convênio não foi preenchido", "Cadastro incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtRisco.Text.Equals(""))
+            {
+                MessageBox.Show("Campo Risco não foi preenchido", "Cadastro incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtNumero.Text.Equals(""))
+            {
+                MessageBox.Show("Campo Numéro não foi preenchido", "Cadastro incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtRua.Text.Equals(""))
+            {
+                MessageBox.Show("Campo Rua não foi preenchido", "Cadastro incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtBairro.Text.Equals(""))
+            {
+                MessageBox.Show("Campo Bairro não foi preenchido", "Cadastro incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtCidade.Text.Equals(""))
+            {
+                MessageBox.Show("Campo Cidade não foi preenchido", "Cadastro incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cboUF.SelectedIndex == -1)
+            {
+                MessageBox.Show("Campo UF não foi preenchido", "Cadastro incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
             return true;
+        }
+
+        private Pessoa CriaPessoa()
+        {
+            Pessoa pessoa = new Pessoa();
+            pessoa.Nome = txtNome.Text;
+            pessoa.CGCCPF = txtCGCCPF.Text.Replace(',', '.');
+            return pessoa;
+        }
+
+        private Paciente CriaPaciente()
+        {
+            Paciente paciente = new Paciente();
+            paciente.Convenio.Id = (int)cboConvenio.SelectedValue; 
+            return paciente;
+        }
+
+        private Endereco CriaEndereco()
+        {
+            //cria Endereço
+            Endereco endereco = new Endereco();
+            endereco.CEP = mskCEP.Text.Replace(',', '.');
+            endereco.Rua = txtRua.Text;
+            endereco.Numero = Int32.Parse(txtNumero.Text);
+            endereco.Bairro = txtBairro.Text;
+            endereco.Cidade = txtCidade.Text;
+            endereco.UF = cboUF.Text;
+            return endereco;
         }
 
         private void LimparFormCadastro()
@@ -86,57 +153,46 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
             #endregion
             PopulaComboConvenio();
             PopulaDataGridPessoa();
+            PopulaGridEndereco();
         }
 
         private void rdFisica_CheckedChanged(object sender, EventArgs e)
         {
             lblCGCCPF.Text = "CPF";
-            lblCGCCPF.Visible = true;
-            txtCGCCPF.Visible = true;
         }
 
         private void rdJuridica_CheckedChanged(object sender, EventArgs e)
         {
             lblCGCCPF.Text = "CNPJ";
-            lblCGCCPF.Visible = true;
-            txtCGCCPF.Visible = true;
+        }
+
+        private void btnLimpar_Click_1(object sender, EventArgs e)
+        {
+            LimparFormCadastro();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (ValidaFormCadastro())
             {
-                Paciente paciente = new Paciente();
-                paciente.Pessoa.Nome = txtNome.Text;
-                paciente.Pessoa.CGCCPF = txtCGCCPF.Text.Replace(',', '.');
-                var pacienteResult = PacienteRepositorry.Save(paciente);
-                if (pacienteResult.Pessoa.Id > 0)
+                Pessoa pessoa = CriaPessoa();
+                Paciente paciente = CriaPaciente();
+                Endereco endereco = CriaEndereco();
+
+                //Adiciona no banco de dados
+                var pacienteResult = PessoaRepository.Salve(pessoa);
+                int idPessoa = pacienteResult.Id;
+                paciente.Pessoa.Id = idPessoa;
+                endereco.Pessoa.Id = idPessoa;
+                PacienteRepositorry.Save(paciente);
+                EnderecoRepository.Salve(endereco);
+
+                if (pacienteResult.Id > 0)
                 {
-                    MessageBox.Show($"Pessoa {paciente.Pessoa.Id} - {paciente.Pessoa.Nome} salva com sucesso!",
-                                     "Adicionar Pessoa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    PopulaDataGridPessoa();
+                    MessageBox.Show($"Pessoa {pessoa.Id} - {pessoa.Nome} salva com sucesso", "Adicionar pessoa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
         }
-
-        private void btnLimpar_Click_1(object sender, EventArgs e)
-        {
-            LimparFormCadastro();   
-        }
-
         #endregion
 
 
