@@ -30,7 +30,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastro));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gpFormCadastro = new System.Windows.Forms.GroupBox();
             this.txtCGCCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -67,14 +67,15 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.gridPacientes = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gpPacienteCadastro = new System.Windows.Forms.GroupBox();
             this.txtPacienteRisco = new System.Windows.Forms.TextBox();
             this.lblPacienteRisco = new System.Windows.Forms.Label();
             this.txtNmrProntuario = new System.Windows.Forms.TextBox();
             this.lblNmrProntuario = new System.Windows.Forms.Label();
+            this.novaJanelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gpFormCadastro.SuspendLayout();
             this.gpTipoPessoa.SuspendLayout();
             this.gpEnderecoCadastro.SuspendLayout();
@@ -501,14 +502,14 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.gridPacientes.AllowUserToAddRows = false;
             this.gridPacientes.AllowUserToOrderColumns = true;
             this.gridPacientes.BackgroundColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPacientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPacientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridPacientes.Location = new System.Drawing.Point(0, 10);
             this.gridPacientes.Margin = new System.Windows.Forms.Padding(4);
@@ -524,7 +525,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.ajudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1526, 28);
@@ -534,30 +535,11 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novaJanelaToolStripMenuItem,
             this.sairToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
-            this.sairToolStripMenuItem.Text = "Exit";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.fileToolStripMenuItem.Text = "Arquivo";
             // 
             // gpPacienteCadastro
             // 
@@ -610,6 +592,34 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.lblNmrProntuario.Size = new System.Drawing.Size(96, 16);
             this.lblNmrProntuario.TabIndex = 5;
             this.lblNmrProntuario.Text = "Nmr Prontuário";
+            // 
+            // novaJanelaToolStripMenuItem
+            // 
+            this.novaJanelaToolStripMenuItem.Name = "novaJanelaToolStripMenuItem";
+            this.novaJanelaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.novaJanelaToolStripMenuItem.Text = "Nova janela";
+            this.novaJanelaToolStripMenuItem.Click += new System.EventHandler(this.novaJanelaToolStripMenuItem_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // ajudaToolStripMenuItem
+            // 
+            this.ajudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sobreToolStripMenuItem});
+            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.ajudaToolStripMenuItem.Text = "Ajuda";
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sobreToolStripMenuItem.Text = "Sobre";
             // 
             // FormCadastro
             // 
@@ -679,9 +689,6 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         private System.Windows.Forms.DataGridView gridPacientes;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.MaskedTextBox txtCGCCPF;
         private System.Windows.Forms.GroupBox gpPacienteCadastro;
         private System.Windows.Forms.TextBox txtNmrProntuario;
@@ -696,6 +703,10 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         private System.Windows.Forms.Label lblExcluir;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Label lblLimpar;
+        private System.Windows.Forms.ToolStripMenuItem novaJanelaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
     }
 }
 

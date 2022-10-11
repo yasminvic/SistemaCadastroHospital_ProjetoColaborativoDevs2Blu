@@ -183,7 +183,10 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
                 endereco.Numero = Int32.Parse(txtNumero.Text);
 
                 Paciente paciente = new Paciente();
+                paciente.Pessoa = pessoa;
                 paciente.Convenio.Id = (int)cboConvenio.SelectedValue;
+                paciente.NrProntuario = Int32.Parse(txtNmrProntuario.Text);
+                paciente.PacienteRisco = txtPacienteRisco.Text;
                 //paciente.NrProntuario = Int32.Parse($"{dateTime.Day}" + $"{random.Next(100, 999)}");
                 paciente.NrProntuario = Int32.Parse(txtNmrProntuario.Text);
                 paciente.PacienteRisco = txtPacienteRisco.Text;
@@ -239,6 +242,17 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
                     mskCEP.Focus();
                 }
             }
+        }
+
+        private void novaJanelaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCadastro formCadastro = new FormCadastro();
+            formCadastro.Show();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
         #endregion
 

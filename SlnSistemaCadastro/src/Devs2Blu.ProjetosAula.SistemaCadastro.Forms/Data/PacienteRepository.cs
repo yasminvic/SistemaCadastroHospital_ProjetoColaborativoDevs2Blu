@@ -16,9 +16,9 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
                 MySqlCommand cmd = new MySqlCommand(SQL_INSERT_PACIENTE, conn);
 
                 cmd.Parameters.Add("@id_pessoa", MySqlDbType.Int32).Value = paciente.Pessoa.Id;
-                cmd.Parameters.Add("@convenio_id", MySqlDbType.Int32).Value = 2;
+                cmd.Parameters.Add("@convenio_id", MySqlDbType.Int32).Value = paciente.Convenio.Id;
                 cmd.Parameters.Add("@numero_prontuario", MySqlDbType.Int32).Value = paciente.NrProntuario;
-                cmd.Parameters.Add("@paciente_risco", MySqlDbType.VarChar, 5).Value = "Null";
+                cmd.Parameters.Add("@paciente_risco", MySqlDbType.VarChar, 5).Value = paciente.PacienteRisco;
 
                 cmd.ExecuteNonQuery();
             }
