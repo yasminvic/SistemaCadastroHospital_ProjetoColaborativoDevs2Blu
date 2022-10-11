@@ -29,7 +29,8 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
         }
 
         #region Methods
-        
+
+        #region Popula
         private void PopulaComboConvenio()
         {
             var listConvenio = ConvenioRepository.FetchAll();
@@ -49,7 +50,39 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
             var listEnderecos = EnderecoRepository.GetEndereco();
             gridEndereco.DataSource = new BindingSource(listEnderecos, null);
         }
+        #endregion
 
+        #region Create
+        private Pessoa CreatePessoa()
+        {
+            Pessoa pessoa = new Pessoa();
+            pessoa.Nome = txtNome.Text;
+            pessoa.CGCCPF = txtCGCCPF.Text.Replace(',', '.');
+            return pessoa;
+        }
+
+        private Paciente CreatePaciente()
+        {
+            Paciente paciente = new Paciente();
+            paciente.Convenio.Id = (int)cboConvenio.SelectedValue; 
+            return paciente;
+        }
+
+        private Endereco CreateEndereco()
+        {
+            //cria Endereço
+            Endereco endereco = new Endereco();
+            endereco.CEP = mskCEP.Text.Replace(',', '.');
+            endereco.Rua = txtRua.Text;
+            endereco.Numero = Int32.Parse(txtNumero.Text);
+            endereco.Bairro = txtBairro.Text;
+            endereco.Cidade = txtCidade.Text;
+            endereco.UF = cboUF.Text;
+            return endereco;
+        }
+        #endregion
+
+        #region Forms
         private bool ValidaFormCadastro()
         {
             if (txtNome.Text.Equals(""))
@@ -96,34 +129,6 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
             return true;
         }
 
-        private Pessoa CriaPessoa()
-        {
-            Pessoa pessoa = new Pessoa();
-            pessoa.Nome = txtNome.Text;
-            pessoa.CGCCPF = txtCGCCPF.Text.Replace(',', '.');
-            return pessoa;
-        }
-
-        private Paciente CriaPaciente()
-        {
-            Paciente paciente = new Paciente();
-            paciente.Convenio.Id = (int)cboConvenio.SelectedValue; 
-            return paciente;
-        }
-
-        private Endereco CriaEndereco()
-        {
-            //cria Endereço
-            Endereco endereco = new Endereco();
-            endereco.CEP = mskCEP.Text.Replace(',', '.');
-            endereco.Rua = txtRua.Text;
-            endereco.Numero = Int32.Parse(txtNumero.Text);
-            endereco.Bairro = txtBairro.Text;
-            endereco.Cidade = txtCidade.Text;
-            endereco.UF = cboUF.Text;
-            return endereco;
-        }
-
         private void LimparFormCadastro()
         {
             txtNome.Text = "";
@@ -136,11 +141,12 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
             txtNumero.Text = "";
             txtBairro.Text = "";
         }
+        #endregion
 
         #endregion
 
         #region Events
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
             #region Teste Conexão
@@ -166,6 +172,8 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
             lblCGCCPF.Text = "CNPJ";
         }
 
+        #region Buttons
+
         private void btnLimpar_Click_1(object sender, EventArgs e)
         {
             LimparFormCadastro();
@@ -175,9 +183,9 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
         {
             if (ValidaFormCadastro())
             {
-                Pessoa pessoa = CriaPessoa();
-                Paciente paciente = CriaPaciente();
-                Endereco endereco = CriaEndereco();
+                Pessoa pessoa = CreatePessoa();
+                Paciente paciente = CreatePaciente();
+                Endereco endereco = CreateEndereco();
 
                 //Adiciona no banco de dados
                 var pacienteResult = PessoaRepository.Salve(pessoa);
@@ -193,8 +201,9 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
                 }
             }
         }
+
         #endregion
 
-
+        #endregion
     }
 }
