@@ -83,7 +83,9 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtIdPessoa);
             this.Controls.Add(this.lblIdPessoa);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormExcluir";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Excluir";
             this.Load += new System.EventHandler(this.FormExcluir_Load);
             this.ResumeLayout(false);

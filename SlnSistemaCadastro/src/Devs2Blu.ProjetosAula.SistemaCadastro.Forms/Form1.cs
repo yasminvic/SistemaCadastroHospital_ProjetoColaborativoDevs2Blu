@@ -5,6 +5,7 @@ using MySql.Data.MySqlClient;
 using System;
 using Correios;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
 {
@@ -41,16 +42,36 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
 
         private bool ValidaFormCadastro()
         {
+            // Regex para validar CPF
+            Regex regexCPF = new Regex(@"([/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/])");
+            Regex regexCNPJ = new Regex(@"([/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/])");
+
             if (txtNome.Text.Equals(""))
             {
                 MessageBox.Show("Por Favor, Informe seu Nome!");
                 return false;
             }
-            if (txtCGCCPF.Text.Equals(""))
+
+            #region CGCCPF
+            if (lblCGCCPF.Text == "CPF")
             {
-                MessageBox.Show("Por Favor, Informe seu CPF!");
-                return false;
+                if (!regexCPF.IsMatch(txtCGCCPF.Text))
+                {
+                    MessageBox.Show("Informe um CFP válido!!");
+                    return false;
+                }
             }
+            else if (txtCGCCPF.Text == "CPF")
+            {
+                if (!regexCNPJ.IsMatch(txtCGCCPF.Text))
+                {
+                    MessageBox.Show("Informe um CNPJ válido!");
+                        return false;
+                }
+            }
+            
+            #endregion
+
             if (cboConvenio.SelectedIndex == -1)
             {
                 MessageBox.Show("Por Favor, Informe seu Convenio!");
@@ -133,6 +154,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             lblCGCCPF.Text = "CPF";
             lblCGCCPF.Visible = true;
             tipoPessoa = TipoPessoa.PF;
+            txtCGCCPF.Mask = "000.000.000-00";
         }
 
         private void rdJuridica_CheckedChanged(object sender, EventArgs e)
@@ -140,6 +162,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             lblCGCCPF.Text = "CNPJ";
             lblCGCCPF.Visible = true;
             tipoPessoa = TipoPessoa.PJ;
+            txtCGCCPF.Mask = "00.000.000/0000-00";
         }
         #endregion
 
@@ -180,6 +203,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
                 }
             }
         }
+
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             FormExcluir formExcluir = new FormExcluir();

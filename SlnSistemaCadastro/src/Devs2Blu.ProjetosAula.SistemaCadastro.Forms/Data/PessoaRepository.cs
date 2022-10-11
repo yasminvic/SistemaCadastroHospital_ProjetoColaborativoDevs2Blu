@@ -17,7 +17,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand(SQL_SELECT_PESSOA, conn);
+                MySqlCommand cmd = new MySqlCommand(SQL_SELECT_ALL, conn);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 return dataReader;
@@ -55,15 +55,34 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
         private const String SQL_SELECT_PESSOA = "SELECT * FROM pessoa";
 
         private const String SQL_INSERT_PESSOA = @"INSERT INTO pessoa
-(nome,
-cgccpf,
-tipopessoa,
-flstatus)
-VALUES
-(@nome,
-@cgccpf,
-@tipopessoa,
-'A')";
+                                                (nome,
+                                                cgccpf,
+                                                tipopessoa,
+                                                flstatus)
+                                                VALUES
+                                                (@nome,
+                                                @cgccpf,
+                                                @tipopessoa,
+                                                'A')";
+
+        private const string SQL_SELECT_ALL = @"SELECT p.id AS idpessoa,
+                                                pa.id AS idpaciente,
+                                                p.Nome,
+                                                p.CGCCPF,
+                                                p.TipoPessoa,
+                                                pa.Numero_Prontuario,
+                                                pa.Paciente_Risco,
+                                                c.nome as Convenio,
+                                                e.CEP,
+                                                e.Rua,
+                                                e.Numero,
+                                                e.Bairro,
+                                                e.Cidade,
+                                                e.UF
+                                                FROM pessoa p 
+                                                INNER JOIN endereco e ON p.id = e.id_pessoa
+                                                INNER JOIN paciente pa ON p.id = pa.id_pessoa
+                                                INNER JOIN convenio c ON pa.convenio_id = c.id && p.id = pa.id_pessoa";
         #endregion
     }
 }

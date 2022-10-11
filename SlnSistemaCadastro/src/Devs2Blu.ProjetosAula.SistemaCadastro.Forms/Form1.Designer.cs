@@ -30,6 +30,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastro));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gpFormCadastro = new System.Windows.Forms.GroupBox();
             this.txtCGCCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -107,7 +108,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.txtCGCCPF.Location = new System.Drawing.Point(85, 87);
             this.txtCGCCPF.Mask = "000.000.000-00";
             this.txtCGCCPF.Name = "txtCGCCPF";
-            this.txtCGCCPF.Size = new System.Drawing.Size(98, 22);
+            this.txtCGCCPF.Size = new System.Drawing.Size(111, 22);
             this.txtCGCCPF.TabIndex = 16;
             // 
             // txtNome
@@ -491,7 +492,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.gpConteudo.Margin = new System.Windows.Forms.Padding(4);
             this.gpConteudo.Name = "gpConteudo";
             this.gpConteudo.Padding = new System.Windows.Forms.Padding(4);
-            this.gpConteudo.Size = new System.Drawing.Size(980, 636);
+            this.gpConteudo.Size = new System.Drawing.Size(1012, 636);
             this.gpConteudo.TabIndex = 5;
             this.gpConteudo.TabStop = false;
             // 
@@ -500,13 +501,21 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.gridPacientes.AllowUserToAddRows = false;
             this.gridPacientes.AllowUserToOrderColumns = true;
             this.gridPacientes.BackgroundColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPacientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridPacientes.Location = new System.Drawing.Point(0, 10);
             this.gridPacientes.Margin = new System.Windows.Forms.Padding(4);
             this.gridPacientes.Name = "gridPacientes";
             this.gridPacientes.ReadOnly = true;
             this.gridPacientes.RowHeadersWidth = 51;
-            this.gridPacientes.Size = new System.Drawing.Size(980, 626);
+            this.gridPacientes.Size = new System.Drawing.Size(1012, 626);
             this.gridPacientes.TabIndex = 0;
             // 
             // menuStrip1
@@ -518,7 +527,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1494, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1526, 28);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -606,16 +615,19 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1494, 681);
+            this.ClientSize = new System.Drawing.Size(1526, 681);
             this.Controls.Add(this.gpPacienteCadastro);
             this.Controls.Add(this.gpConteudo);
             this.Controls.Add(this.panelControles);
             this.Controls.Add(this.gpFormCadastro);
             this.Controls.Add(this.gpEnderecoCadastro);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCadastro";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "+Devs2Blu - Sistema de Cadastro Hospitalar";
             this.Activated += new System.EventHandler(this.FormCadastro_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
