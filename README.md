@@ -7,7 +7,7 @@ Sistema de cadastro hospitalar feito em grupo.
 * Lucas Kreuch
 * Pedro Godri
 * Patrick
-* Yasmin
+* Yasmin Victória Alves de Souza
 
 ## Obs:
 O trabalho de cada integrante esta na branch com o seu nome.
