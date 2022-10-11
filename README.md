@@ -10,4 +10,4 @@ Sistema de cadastro hospitalar feito em grupo.
 * Yasmin Victória Alves de Souza
 
 ## Obs:
-O trabalho de cada integrante esta na branch com o seu nome.
+O trabalho de cada integrante está na branch com o seu nome.
