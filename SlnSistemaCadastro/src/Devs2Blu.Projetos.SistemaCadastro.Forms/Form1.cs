@@ -22,6 +22,9 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
         public PessoaRepository PessoaRepository = new PessoaRepository();
         public PacienteRepositorry PacienteRepositorry = new PacienteRepositorry();
         public EnderecoRepository EnderecoRepository = new EnderecoRepository();
+        public Pessoa PessoaRefresh = new Pessoa();
+        public Paciente PacienteRefresh = new Paciente();
+        public Endereco EnderecoRefresh = new Endereco();
 
         public Form1()
         {
@@ -47,38 +50,8 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
 
         private void PopulaGridEndereco()
         {
-            var listEnderecos = EnderecoRepository.GetEndereco();
+            var listEnderecos = EnderecoRepository.GetEnderecos();
             gridEndereco.DataSource = new BindingSource(listEnderecos, null);
-        }
-        #endregion
-
-        #region Create
-        private Pessoa CreatePessoa()
-        {
-            Pessoa pessoa = new Pessoa();
-            pessoa.Nome = txtNome.Text;
-            pessoa.CGCCPF = txtCGCCPF.Text.Replace(',', '.');
-            return pessoa;
-        }
-
-        private Paciente CreatePaciente()
-        {
-            Paciente paciente = new Paciente();
-            paciente.Convenio.Id = (int)cboConvenio.SelectedValue; 
-            return paciente;
-        }
-
-        private Endereco CreateEndereco()
-        {
-            //cria Endereço
-            Endereco endereco = new Endereco();
-            endereco.CEP = mskCEP.Text.Replace(',', '.');
-            endereco.Rua = txtRua.Text;
-            endereco.Numero = Int32.Parse(txtNumero.Text);
-            endereco.Bairro = txtBairro.Text;
-            endereco.Cidade = txtCidade.Text;
-            endereco.UF = cboUF.Text;
-            return endereco;
         }
         #endregion
 
@@ -125,7 +98,6 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
                 MessageBox.Show("Campo UF não foi preenchido", "Cadastro incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-
             return true;
         }
 
@@ -140,6 +112,19 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
             txtRua.Text = "";
             txtNumero.Text = "";
             txtBairro.Text = "";
+        }
+
+        private void AtualizaCamposForm()
+        {
+            PacienteRefresh.Pessoa.Nome = txtNome.Text;
+            PacienteRefresh.Pessoa.CGCCPF = txtCGCCPF.Text.Replace(',', '.');
+            PacienteRefresh.Convenio.Id = (int)cboConvenio.SelectedValue;
+
+            EnderecoRefresh.CEP = mskCEP.Text;
+            EnderecoRefresh.Rua = txtRua.Text;
+            EnderecoRefresh.Numero = Int32.Parse(txtNumero.Text);
+            EnderecoRefresh.Bairro = txtBairro.Text;
+
         }
         #endregion
 
@@ -158,8 +143,6 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
             }*/
             #endregion
             PopulaComboConvenio();
-            PopulaDataGridPessoa();
-            PopulaGridEndereco();
         }
 
         private void rdFisica_CheckedChanged(object sender, EventArgs e)
@@ -183,21 +166,15 @@ namespace Devs2Blu.Projetos.SistemaCadastro.Forms
         {
             if (ValidaFormCadastro())
             {
-                Pessoa pessoa = CreatePessoa();
-                Paciente paciente = CreatePaciente();
-                Endereco endereco = CreateEndereco();
+                AtualizaCamposForm();
 
-                //Adiciona no banco de dados
-                var pacienteResult = PessoaRepository.Salve(pessoa);
-                int idPessoa = pacienteResult.Id;
-                paciente.Pessoa.Id = idPessoa;
-                endereco.Pessoa.Id = idPessoa;
-                PacienteRepositorry.Save(paciente);
-                EnderecoRepository.Salve(endereco);
 
-                if (pacienteResult.Id > 0)
+                var pacienteResult = PacienteRepositorry.Save(PacienteRefresh, EnderecoRefresh);
+                if (pacienteResult.Pessoa.Id > 0)
                 {
-                    MessageBox.Show($"Pessoa {pessoa.Id} - {pessoa.Nome} salva com sucesso", "Adicionar pessoa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"Pessoa {pacienteResult.Pessoa.Id} - {pacienteResult.Pessoa.Nome} salva com sucesso!", 
+                                     "Adicionar Pessoa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    PopulaDataGridPessoa();
                 }
             }
         }
