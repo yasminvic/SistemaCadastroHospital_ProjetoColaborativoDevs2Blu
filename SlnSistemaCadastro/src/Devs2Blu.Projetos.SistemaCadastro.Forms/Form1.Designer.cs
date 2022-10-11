@@ -160,7 +160,7 @@
             // 
             this.txtNome.Location = new System.Drawing.Point(113, 31);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(337, 20);
+            this.txtNome.Size = new System.Drawing.Size(261, 20);
             this.txtNome.TabIndex = 9;
             // 
             // groupBox3
