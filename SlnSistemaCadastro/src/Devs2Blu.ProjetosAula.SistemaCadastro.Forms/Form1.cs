@@ -69,7 +69,6 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
                         return false;
                 }
             }
-            
             #endregion
 
             if (cboConvenio.SelectedIndex == -1)
