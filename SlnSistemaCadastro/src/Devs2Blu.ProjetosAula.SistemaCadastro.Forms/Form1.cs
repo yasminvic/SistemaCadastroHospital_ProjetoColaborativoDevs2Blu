@@ -196,13 +196,8 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
                 EnderecoRepository.SaveEndereco(endereco, idPessoa);  // Salva o endereço
                 PacienteRepository.SavePaciente(paciente);            // Salva o Paciente
 
-
-
-                if (paciente.Pessoa.Id > 0)
-                {
-                    MessageBox.Show($"Pessoa {paciente.Pessoa.Id} - {paciente.Pessoa.Nome} - {paciente.Pessoa.CGCCPF} salva com sucesso!", "Adicionar Pessoa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    PopulaDataGridPessoa();
-                }
+                MessageBox.Show($"Pessoa {paciente.Pessoa.Id} salva com sucesso!", "Adicionar Pessoa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                PopulaDataGridPessoa();
             }
         }
 
