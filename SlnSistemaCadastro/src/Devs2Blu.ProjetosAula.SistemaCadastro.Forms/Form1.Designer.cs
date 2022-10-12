@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbFormCadastro = new System.Windows.Forms.GroupBox();
+            this.txtRisco = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.txtCGCCPF = new System.Windows.Forms.MaskedTextBox();
-            this.btnLimpar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gbEnderecoCadastro = new System.Windows.Forms.GroupBox();
@@ -54,10 +56,14 @@
             this.rbFisica = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.cboConvenio = new System.Windows.Forms.ComboBox();
-            this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gridEndereco = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gridPaciente = new System.Windows.Forms.DataGridView();
             this.gbControles = new System.Windows.Forms.GroupBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -65,22 +71,17 @@
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtRisco = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.gridEndereco = new System.Windows.Forms.DataGridView();
-            this.btnAlterar = new System.Windows.Forms.Button();
+            this.tipDescricao = new System.Windows.Forms.ToolTip(this.components);
             this.gbFormCadastro.SuspendLayout();
             this.gbEnderecoCadastro.SuspendLayout();
             this.gbTipoPessoa.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridEndereco)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPaciente)).BeginInit();
             this.gbControles.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridEndereco)).BeginInit();
             this.SuspendLayout();
             // 
             // gbFormCadastro
@@ -88,7 +89,6 @@
             this.gbFormCadastro.Controls.Add(this.txtRisco);
             this.gbFormCadastro.Controls.Add(this.label9);
             this.gbFormCadastro.Controls.Add(this.txtCGCCPF);
-            this.gbFormCadastro.Controls.Add(this.btnLimpar);
             this.gbFormCadastro.Controls.Add(this.txtNome);
             this.gbFormCadastro.Controls.Add(this.label2);
             this.gbFormCadastro.Controls.Add(this.gbEnderecoCadastro);
@@ -104,29 +104,33 @@
             this.gbFormCadastro.TabStop = false;
             this.gbFormCadastro.Text = "Formulário de Cadastro";
             // 
+            // txtRisco
+            // 
+            this.txtRisco.Location = new System.Drawing.Point(220, 114);
+            this.txtRisco.Name = "txtRisco";
+            this.txtRisco.Size = new System.Drawing.Size(115, 20);
+            this.txtRisco.TabIndex = 18;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(181, 117);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Risco:";
+            // 
             // txtCGCCPF
             // 
-            this.txtCGCCPF.Location = new System.Drawing.Point(73, 70);
+            this.txtCGCCPF.Location = new System.Drawing.Point(79, 79);
             this.txtCGCCPF.Mask = "000.000.000-00";
             this.txtCGCCPF.Name = "txtCGCCPF";
             this.txtCGCCPF.Size = new System.Drawing.Size(95, 20);
             this.txtCGCCPF.TabIndex = 16;
             // 
-            // btnLimpar
-            // 
-            this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnLimpar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnLimpar.Location = new System.Drawing.Point(137, 344);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 15;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = false;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
-            // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(71, 31);
+            this.txtNome.Location = new System.Drawing.Point(77, 40);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(258, 20);
             this.txtNome.TabIndex = 14;
@@ -134,7 +138,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 34);
+            this.label2.Location = new System.Drawing.Point(19, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 13;
@@ -142,6 +146,7 @@
             // 
             // gbEnderecoCadastro
             // 
+            this.gbEnderecoCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.gbEnderecoCadastro.Controls.Add(this.cboUF);
             this.gbEnderecoCadastro.Controls.Add(this.mskCEP);
             this.gbEnderecoCadastro.Controls.Add(this.txtNum);
@@ -154,7 +159,7 @@
             this.gbEnderecoCadastro.Controls.Add(this.label5);
             this.gbEnderecoCadastro.Controls.Add(this.label4);
             this.gbEnderecoCadastro.Controls.Add(this.label3);
-            this.gbEnderecoCadastro.Location = new System.Drawing.Point(9, 140);
+            this.gbEnderecoCadastro.Location = new System.Drawing.Point(9, 168);
             this.gbEnderecoCadastro.Name = "gbEnderecoCadastro";
             this.gbEnderecoCadastro.Size = new System.Drawing.Size(331, 190);
             this.gbEnderecoCadastro.TabIndex = 12;
@@ -204,6 +209,7 @@
             this.mskCEP.Name = "mskCEP";
             this.mskCEP.Size = new System.Drawing.Size(73, 20);
             this.mskCEP.TabIndex = 11;
+            this.mskCEP.TextChanged += new System.EventHandler(this.mskCEP_TextChanged);
             // 
             // txtNum
             // 
@@ -290,7 +296,7 @@
             // lblCGCCPF
             // 
             this.lblCGCCPF.AutoSize = true;
-            this.lblCGCCPF.Location = new System.Drawing.Point(13, 73);
+            this.lblCGCCPF.Location = new System.Drawing.Point(19, 82);
             this.lblCGCCPF.Name = "lblCGCCPF";
             this.lblCGCCPF.Size = new System.Drawing.Size(30, 13);
             this.lblCGCCPF.TabIndex = 9;
@@ -300,9 +306,9 @@
             // 
             this.gbTipoPessoa.Controls.Add(this.rbJuridica);
             this.gbTipoPessoa.Controls.Add(this.rbFisica);
-            this.gbTipoPessoa.Location = new System.Drawing.Point(189, 56);
+            this.gbTipoPessoa.Location = new System.Drawing.Point(180, 66);
             this.gbTipoPessoa.Name = "gbTipoPessoa";
-            this.gbTipoPessoa.Size = new System.Drawing.Size(143, 43);
+            this.gbTipoPessoa.Size = new System.Drawing.Size(155, 43);
             this.gbTipoPessoa.TabIndex = 7;
             this.gbTipoPessoa.TabStop = false;
             this.gbTipoPessoa.Text = "Tipo Pessoa";
@@ -310,7 +316,7 @@
             // rbJuridica
             // 
             this.rbJuridica.AutoSize = true;
-            this.rbJuridica.Location = new System.Drawing.Point(77, 17);
+            this.rbJuridica.Location = new System.Drawing.Point(86, 17);
             this.rbJuridica.Name = "rbJuridica";
             this.rbJuridica.Size = new System.Drawing.Size(63, 17);
             this.rbJuridica.TabIndex = 8;
@@ -322,7 +328,7 @@
             // 
             this.rbFisica.AutoSize = true;
             this.rbFisica.Checked = true;
-            this.rbFisica.Location = new System.Drawing.Point(17, 17);
+            this.rbFisica.Location = new System.Drawing.Point(6, 17);
             this.rbFisica.Name = "rbFisica";
             this.rbFisica.Size = new System.Drawing.Size(54, 17);
             this.rbFisica.TabIndex = 7;
@@ -334,7 +340,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 104);
+            this.label1.Location = new System.Drawing.Point(15, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 17);
             this.label1.TabIndex = 3;
@@ -373,21 +379,10 @@
             "SP",
             "SE",
             "TO"});
-            this.cboConvenio.Location = new System.Drawing.Point(70, 101);
+            this.cboConvenio.Location = new System.Drawing.Point(76, 110);
             this.cboConvenio.Name = "cboConvenio";
             this.cboConvenio.Size = new System.Drawing.Size(95, 21);
             this.cboConvenio.TabIndex = 2;
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.BackColor = System.Drawing.Color.Lime;
-            this.btnSalvar.Location = new System.Drawing.Point(235, 18);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 3;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // groupBox1
             // 
@@ -395,61 +390,138 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(414, 46);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 382);
+            this.groupBox1.Size = new System.Drawing.Size(585, 382);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Status";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.gridEndereco);
+            this.groupBox4.Location = new System.Drawing.Point(12, 203);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(552, 168);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Endereço";
+            // 
+            // gridEndereco
+            // 
+            this.gridEndereco.AllowUserToAddRows = false;
+            this.gridEndereco.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            this.gridEndereco.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.gridEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridEndereco.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridEndereco.Location = new System.Drawing.Point(3, 16);
+            this.gridEndereco.Name = "gridEndereco";
+            this.gridEndereco.ReadOnly = true;
+            this.gridEndereco.RowHeadersVisible = false;
+            this.gridEndereco.Size = new System.Drawing.Size(546, 149);
+            this.gridEndereco.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.gridPaciente);
+            this.groupBox2.Location = new System.Drawing.Point(12, 14);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(552, 183);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Paciente";
             // 
             // gridPaciente
             // 
             this.gridPaciente.AllowUserToAddRows = false;
             this.gridPaciente.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.gridPaciente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.gridPaciente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.gridPaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPaciente.Location = new System.Drawing.Point(10, 18);
+            this.gridPaciente.Location = new System.Drawing.Point(6, 17);
             this.gridPaciente.Name = "gridPaciente";
             this.gridPaciente.ReadOnly = true;
             this.gridPaciente.RowHeadersVisible = false;
-            this.gridPaciente.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.gridPaciente.Size = new System.Drawing.Size(368, 153);
+            this.gridPaciente.Size = new System.Drawing.Size(543, 153);
             this.gridPaciente.TabIndex = 0;
             // 
             // gbControles
             // 
             this.gbControles.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.gbControles.Controls.Add(this.btnAlterar);
-            this.gbControles.Controls.Add(this.btnExcluir);
             this.gbControles.Controls.Add(this.btnSalvar);
+            this.gbControles.Controls.Add(this.btnLimpar);
+            this.gbControles.Controls.Add(this.btnExcluir);
             this.gbControles.Controls.Add(this.btnInfo);
             this.gbControles.Location = new System.Drawing.Point(24, 453);
             this.gbControles.Name = "gbControles";
-            this.gbControles.Size = new System.Drawing.Size(754, 47);
+            this.gbControles.Size = new System.Drawing.Size(975, 62);
             this.gbControles.TabIndex = 4;
             this.gbControles.TabStop = false;
             this.gbControles.Text = "Controles";
             // 
+            // btnSalvar
+            // 
+            this.btnSalvar.AccessibleDescription = "Salvar ";
+            this.btnSalvar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnSalvar.BackgroundImage = global::Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Properties.Resources.save;
+            this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSalvar.FlatAppearance.BorderSize = 0;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar.Location = new System.Drawing.Point(390, 14);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(45, 42);
+            this.btnSalvar.TabIndex = 3;
+            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnSalvar.MouseHover += new System.EventHandler(this.Salvar);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnLimpar.BackgroundImage = global::Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Properties.Resources.clean;
+            this.btnLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLimpar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLimpar.FlatAppearance.BorderSize = 0;
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.Location = new System.Drawing.Point(449, 14);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(49, 37);
+            this.btnLimpar.TabIndex = 15;
+            this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            this.btnLimpar.MouseHover += new System.EventHandler(this.DescricaoLimpar);
+            // 
             // btnExcluir
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.Red;
-            this.btnExcluir.Location = new System.Drawing.Point(137, 18);
+            this.btnExcluir.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnExcluir.BackgroundImage = global::Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Properties.Resources.delete;
+            this.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExcluir.FlatAppearance.BorderSize = 0;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluir.Location = new System.Drawing.Point(506, 14);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.Size = new System.Drawing.Size(48, 37);
             this.btnExcluir.TabIndex = 1;
-            this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            this.btnExcluir.MouseHover += new System.EventHandler(this.DeleteDescricao);
             // 
             // btnInfo
             // 
-            this.btnInfo.Location = new System.Drawing.Point(42, 18);
+            this.btnInfo.BackgroundImage = global::Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Properties.Resources.info;
+            this.btnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInfo.FlatAppearance.BorderSize = 0;
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfo.Location = new System.Drawing.Point(560, 14);
             this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnInfo.Size = new System.Drawing.Size(44, 39);
             this.btnInfo.TabIndex = 0;
-            this.btnInfo.Text = "Info";
             this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.MouseHover += new System.EventHandler(this.InfoDescricao);
             // 
             // menuStrip1
             // 
@@ -459,7 +531,7 @@
             this.helpeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(832, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1027, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -476,6 +548,7 @@
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.sairToolStripMenuItem.Text = "Exit";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // helpeToolStripMenuItem
             // 
@@ -491,72 +564,11 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(175, 108);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 13);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Risco:";
-            // 
-            // txtRisco
-            // 
-            this.txtRisco.Location = new System.Drawing.Point(214, 105);
-            this.txtRisco.Name = "txtRisco";
-            this.txtRisco.Size = new System.Drawing.Size(115, 20);
-            this.txtRisco.TabIndex = 18;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.gridPaciente);
-            this.groupBox2.Location = new System.Drawing.Point(12, 14);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(384, 183);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Paciente";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.gridEndereco);
-            this.groupBox4.Location = new System.Drawing.Point(12, 203);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(384, 168);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Endereço";
-            // 
-            // gridEndereco
-            // 
-            this.gridEndereco.AllowUserToAddRows = false;
-            this.gridEndereco.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            this.gridEndereco.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridEndereco.Location = new System.Drawing.Point(10, 18);
-            this.gridEndereco.Name = "gridEndereco";
-            this.gridEndereco.ReadOnly = true;
-            this.gridEndereco.RowHeadersVisible = false;
-            this.gridEndereco.Size = new System.Drawing.Size(368, 141);
-            this.gridEndereco.TabIndex = 0;
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.BackColor = System.Drawing.Color.Yellow;
-            this.btnAlterar.Location = new System.Drawing.Point(325, 18);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 4;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 512);
+            this.ClientSize = new System.Drawing.Size(1027, 542);
             this.Controls.Add(this.gbControles);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbFormCadastro);
@@ -565,6 +577,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "+Devs2Blu - Sistema de Cadastro Hospitalar";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbFormCadastro.ResumeLayout(false);
             this.gbFormCadastro.PerformLayout();
@@ -573,13 +586,13 @@
             this.gbTipoPessoa.ResumeLayout(false);
             this.gbTipoPessoa.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridEndereco)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridPaciente)).EndInit();
             this.gbControles.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridEndereco)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -627,7 +640,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView gridEndereco;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.ToolTip tipDescricao;
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using Devs2Blu.ProjetosAula.OOP3.Models.Model;
+﻿using Devs2Blu.ProjetosAula.Models.Enum;
+using Devs2Blu.ProjetosAula.OOP3.Models.Model;
 using Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data;
 using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Model;
 using MySql.Data.MySqlClient; //faz conexão com mysql
@@ -11,6 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Correios;
+using System.Text.RegularExpressions;
 
 namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
 {
@@ -53,7 +56,6 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
         private bool ValidaFormCadastro()
         {
 
-            //RETORNAR QUAL CAMPO ESTÁ FALTANDO (fazer messagebox)
             if (txtNome.Text.Equals(""))
             {
                 MessageBox.Show("Campo Nome não foi preenchido", "Cadastro incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -104,6 +106,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             Pessoa pessoa = new Pessoa();
             pessoa.Nome = txtNome.Text;
             pessoa.CGCCPF = txtCGCCPF.Text.Replace(',', '.');//substituir virgula por ponto
+            bool isChecked = rbFisica.Checked;
             return pessoa;
         }
 
@@ -143,19 +146,18 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             }  */
             #endregion
             PopulaComboConvenio();
-            PopulaDataGridPessoa();
-            PopulaGridEndereco();
         }
 
         private void rbFisica_CheckedChanged(object sender, EventArgs e)
         {
             lblCGCCPF.Text = "CPF:";
+            txtCGCCPF.Mask = "000.000.000-00";
         }
 
         private void rbJuridica_CheckedChanged(object sender, EventArgs e)
         {
             lblCGCCPF.Text = "CNPJ:";
-        
+            txtCGCCPF.Mask = "00.000.000/000-00";
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -168,6 +170,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             txtRua.Clear();
             txtBairro.Clear();
             txtCidade.Clear();
+            cboConvenio.SelectedValue = 0;
         }
         
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -179,12 +182,12 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
                 Endereco endereco = CriaEndereco();
 
                 //Adiciona no banco de dados
-                var pacienteResult = PessoaRepository.Salve(pessoa);
+                var pacienteResult = PessoaRepository.InsertPes(pessoa);
                 int idPessoa = pacienteResult.Id;
                 paciente.Pessoa.Id = idPessoa;
                 endereco.Pessoa.Id = idPessoa;
-                PacienteRepository.Save(paciente);
-                EnderecoRepository.Salve(endereco);
+                PacienteRepository.InsertPac(paciente);
+                EnderecoRepository.InsertEnd(endereco);
 
                 if (pacienteResult.Id > 0)
                 {
@@ -193,7 +196,72 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms
             }
         }
 
+        private void mskCEP_TextChanged(object sender, EventArgs e)
+        {
+            //Preencher endereço
+            if (mskCEP.Text.Length.Equals(10))
+            {
+                try
+                {
+                    CorreiosApi correiosApi = new CorreiosApi();
+                    var retornar = correiosApi.consultaCEP(mskCEP.Text);
+                    txtRua.Text = retornar.end;
+                    txtBairro.Text = retornar.bairro;
+                    txtCidade.Text = retornar.cidade;
+                    cboUF.Text = retornar.uf;
+                    txtNum.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Informe um CEP válido", "CEP Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mskCEP.Clear();
+                }
+
+
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            //atualiza o grid
+            PopulaGridEndereco();
+            PopulaDataGridPessoa();
+        }
+
+        private void Salvar(object sender, EventArgs e)
+        {
+            tipDescricao.SetToolTip(btnSalvar, "Salvar Paciente");
+            //1º parâmetro: o que deseja aparecer uma descrição
+            //2º parâmetro: descrição
+        }
+
+        private void DescricaoLimpar(object sender, EventArgs e)
+        {
+            tipDescricao.SetToolTip(btnLimpar, "Limpar formulário");
+        }
+
+        private void DeleteDescricao(object sender, EventArgs e)
+        {
+            tipDescricao.SetToolTip(btnExcluir, "Deletar paciente");
+        }
+
+        private void InfoDescricao(object sender, EventArgs e)
+        {
+            tipDescricao.SetToolTip(btnInfo, "Info");
+        }
+
         #endregion
-        
     }
 }

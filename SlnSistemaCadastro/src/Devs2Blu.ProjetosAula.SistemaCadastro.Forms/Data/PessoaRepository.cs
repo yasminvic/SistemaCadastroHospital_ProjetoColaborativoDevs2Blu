@@ -1,4 +1,5 @@
 ﻿using Devs2Blu.ProjetosAula.OOP3.Models.Model;
+using Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Interface;
 using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Model;
 using MySql.Data.MySqlClient;
 using System;
@@ -10,28 +11,8 @@ using System.Windows.Forms;
 
 namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
 {
-    public class PessoaRepository
+    public class PessoaRepository : IComanndSQL
     {
-        public Pessoa Salve(Pessoa pessoa)
-        {
-            MySqlConnection conn = ConnectionMySQL.GetConnection();
-
-            try
-            {
-                pessoa.Id = SavePessoa(pessoa, conn);
-                //como a gente nao esta instanciando id quando inserimos a pessoa
-                //e precisamos dele para criar o paciente
-                //entao estamo pegando ele atraves dessa funcão
-
-                return pessoa;               
-            }
-            catch (MySqlException myexc)
-            {
-                MessageBox.Show(myexc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
-            }
-        }
-      
         private Int32 SavePessoa(Pessoa pessoa, MySqlConnection conn)
         {
             
@@ -51,8 +32,22 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
                 throw;
             }
         }
+        private void DeletePessoa(Int32 idpessoa)
+        {
+            String SQL_DELETE_PESSOA = @"DELETE FROM pessoa WHERE id='" + idpessoa + "'";
+            MySqlConnection conn = ConnectionMySQL.GetConnection();
 
-
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(SQL_DELETE_PESSOA, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException myexc)
+            {
+                MessageBox.Show(myexc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
         public MySqlDataReader GetPessoas()
         {
             MySqlConnection conn = ConnectionMySQL.GetConnection();
@@ -70,7 +65,44 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
                 throw;
             }
         }
- 
+
+        #region Interface
+        public Pessoa InsertPes(Pessoa pessoa)
+        {
+            MySqlConnection conn = ConnectionMySQL.GetConnection();
+
+            try
+            {
+                pessoa.Id = SavePessoa(pessoa, conn);
+                //como a gente nao esta instanciando id quando inserimos a pessoa
+                //e precisamos dele para criar o paciente
+                //entao estamo pegando ele atraves dessa funcão
+
+                return pessoa;
+            }
+            catch (MySqlException myexc)
+            {
+                MessageBox.Show(myexc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
+        public void Delete(Int32 idpessoa)
+        {
+            DeletePessoa(idpessoa);
+        }
+
+        public Paciente InsertPac(Paciente paciente)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Endereco InsertEnd(Endereco endereco)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
 
         #region SQLS
         private const String SQL_INSERT_PESSOA = @"INSERT INTO pessoa (nome,
@@ -81,7 +113,7 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
                                                                         @cpf,
                                                                         @tipopessoa,
                                                                         'A')";
-        private const String SQL_SELECT_PESSOA = @"SELECT id, nome, cpf, flstatus from pessoa";
+        private const String SQL_SELECT_PESSOA = @"SELECT id as ID, nome as Nome, cpf as CPF, tipopessoa as TipoPessoa, flstatus as Status from pessoa";
         #endregion
     }
 }

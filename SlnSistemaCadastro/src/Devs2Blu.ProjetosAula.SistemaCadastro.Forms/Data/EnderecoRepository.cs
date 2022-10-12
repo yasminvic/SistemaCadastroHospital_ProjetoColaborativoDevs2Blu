@@ -1,4 +1,5 @@
 ﻿using Devs2Blu.ProjetosAula.OOP3.Models.Model;
+using Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Interface;
 using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Model;
 using MySql.Data.MySqlClient;
 using System;
@@ -10,23 +11,8 @@ using System.Windows.Forms;
 
 namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
 {
-    public class EnderecoRepository
+    public class EnderecoRepository : IComanndSQL
     {
-
-        public void Salve (Endereco endereco)
-        {
-            MySqlConnection conn = ConnectionMySQL.GetConnection();
-
-            try
-            {
-                SalveEndereco(endereco, conn);
-
-            }catch (MySqlException myexc)
-            {
-                MessageBox.Show(myexc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
-            }
-        }
 
         private void SalveEndereco(Endereco endereco, MySqlConnection conn)
         {
@@ -39,6 +25,23 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
             cmd.Parameters.Add("@uf", MySqlDbType.VarChar, 2).Value = endereco.UF;
             cmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 45).Value = endereco.Cidade;
             cmd.ExecuteNonQuery();
+        }
+
+        public void DeleteEndereco(Int32 idpessoa)
+        {
+            String SQL_DELETE_ENDERECO = @"DELETE FROM endereco WHERE id_pessoa='" + idpessoa + "'";
+            MySqlConnection conn = ConnectionMySQL.GetConnection();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(SQL_DELETE_ENDERECO, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException myexc)
+            {
+                MessageBox.Show(myexc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
 
         public MySqlDataReader GetEndereco()
@@ -58,6 +61,38 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
             }
         }
 
+        public Endereco InsertEnd(Endereco endereco)
+        {
+            MySqlConnection conn = ConnectionMySQL.GetConnection();
+
+            try
+            {
+                SalveEndereco(endereco, conn);
+                return endereco;
+            }
+            catch (MySqlException myexc)
+            {
+                MessageBox.Show(myexc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
+        public void Delete(int idpessoa)
+        {
+            DeleteEndereco(idpessoa);
+        }
+
+        public Pessoa InsertPes(Pessoa pessoa)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Paciente InsertPac(Paciente paciente)
+        {
+            throw new NotImplementedException();
+        }
+
+
         private const String SQL_INSERT_ENDERECO = @"INSERT INTO endereco
                                                                         (id_pessoa,
                                                                         cep,
@@ -74,6 +109,6 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
                                                                         @bairro,
                                                                         @uf,
                                                                         @cidade);";
-        private const String SQL_SELECT_ENDERECO = @"SELECT id_pessoa, cep, rua, numero, bairro, uf, cidade from endereco";
+        private const String SQL_SELECT_ENDERECO = @"SELECT id_pessoa as ID, cep as CEP, rua as Rua, numero as Numero, bairro as Bairro, cidade as Cidade, uf as UF from endereco";
     }
 }

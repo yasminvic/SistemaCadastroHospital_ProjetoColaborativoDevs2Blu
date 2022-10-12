@@ -1,4 +1,5 @@
 ﻿using Devs2Blu.ProjetosAula.OOP3.Models.Model;
+using Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Interface;
 using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Model;
 using MySql.Data.MySqlClient;
 using System;
@@ -10,25 +11,8 @@ using System.Windows.Forms;
 
 namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
 {
-    public class PacienteRepository
+    public class PacienteRepository : IComanndSQL
     {
-        public Paciente Save(Paciente paciente)
-        {
-            MySqlConnection conn = ConnectionMySQL.GetConnection();
-
-            try
-            {
-                PacienteSave(paciente, conn);
-
-            }catch (MySqlException myexc)
-            {
-                MessageBox.Show(myexc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
-            }
-            
-            return paciente;
-        }
-
         private void PacienteSave(Paciente paciente, MySqlConnection conn)
         {
             Random rd = new Random();
@@ -40,6 +24,54 @@ namespace Devs2Blu.ProjetosAula.SistemaCadastro.Forms.Data
             cmd.Parameters.Add("@numero_prontuario", MySqlDbType.Int32).Value = paciente.NumProntuario;
             cmd.Parameters.Add("@paciente_risco", MySqlDbType.VarChar, 5).Value = paciente.PacienteRisco;
             cmd.ExecuteNonQuery();
+        }
+
+        private void DeletePaciente(Int32 idpessoa)
+        {
+            String SQL_DELETE_PACIENTE = @"DELETE FROM paciente WHERE id_pessoa='" + idpessoa + "'";
+            MySqlConnection conn = ConnectionMySQL.GetConnection();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(SQL_DELETE_PACIENTE, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException myexc)
+            {
+                MessageBox.Show(myexc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
+        public Paciente InsertPac(Paciente paciente)
+        {
+            MySqlConnection conn = ConnectionMySQL.GetConnection();
+
+            try
+            {
+                PacienteSave(paciente, conn);
+                return paciente;
+            }
+            catch (MySqlException myexc)
+            {
+                MessageBox.Show(myexc.Message, "Erro de MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            } 
+        }
+
+        public void Delete(int idpessoa)
+        {
+            DeletePaciente(idpessoa);
+        }
+
+        public Pessoa InsertPes(Pessoa pessoa)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Endereco InsertEnd(Endereco endereco)
+        {
+            throw new NotImplementedException();
         }
 
         #region SQLS
