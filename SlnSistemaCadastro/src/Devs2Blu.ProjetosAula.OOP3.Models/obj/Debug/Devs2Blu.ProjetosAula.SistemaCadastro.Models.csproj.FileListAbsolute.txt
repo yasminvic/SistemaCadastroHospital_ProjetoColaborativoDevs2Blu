@@ -4,3 +4,6 @@ C:\Devs2Blu\cursocsharpDevs2Blu\BancoDados\Aula4_ProjetoSistemaCadastro\SlnSiste
 C:\Devs2Blu\cursocsharpDevs2Blu\BancoDados\Aula4_ProjetoSistemaCadastro\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.csproj.CoreCompileInputs.cache
 C:\Devs2Blu\cursocsharpDevs2Blu\BancoDados\Aula4_ProjetoSistemaCadastro\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.OOP3.Models.dll
 C:\Devs2Blu\cursocsharpDevs2Blu\BancoDados\Aula4_ProjetoSistemaCadastro\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.OOP3.Models.pdb
+C:\Devs2Blu\cursocsharpDevs2Blu\BancoDados\Aula4_ProjetoSistemaCadastro\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Correios.dll
+C:\Devs2Blu\cursocsharpDevs2Blu\BancoDados\Aula4_ProjetoSistemaCadastro\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\bin\Debug\Correios.pdb
+C:\Devs2Blu\cursocsharpDevs2Blu\BancoDados\Aula4_ProjetoSistemaCadastro\SlnSistemaCadastro\src\Devs2Blu.ProjetosAula.OOP3.Models\obj\Debug\Devs2Blu.ProjetosAula.SistemaCadastro.Models.csproj.CopyComplete
