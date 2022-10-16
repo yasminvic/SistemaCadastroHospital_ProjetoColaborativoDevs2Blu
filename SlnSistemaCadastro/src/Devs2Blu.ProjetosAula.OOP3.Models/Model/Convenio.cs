@@ -1,40 +1,38 @@
-﻿using System;
+﻿using Devs2Blu.ProjetosAula.Models.Enum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Devs2Blu.Projetos.SistemaCadastro.Models.Model
+namespace Devs2Blu.ProjetosAula.SistemaCadastro.Models.Model
 {
     public class Convenio
     {
         public Int32 Id { get; set; }
         public String Nome { get; set; }
-        public FlConvStatus  Status { get; set; }
+        public FlConvStatus Status { get; set; }
 
-        public Convenio() { }
-
-        public Convenio(String nome) 
+        public Convenio()
         {
-            Nome = nome;
             Status = FlConvStatus.A;
         }
 
-        public Convenio(int id, string nome, FlConvStatus status)
+        public Convenio(string nome)
         {
-            Id = id;
             Nome = nome;
-            Status = status;
+            Status = FlConvStatus.A;
         }
     }
 
     public enum FlConvStatus
     {
         [Description("Inativo")]
-        I = 0,
-        [Description("Ativo")]
-        A = 1,
+        I = 0, // inativo
 
+        [Description("Ativo")]
+        A = 1, // ativo
+        
     }
 }

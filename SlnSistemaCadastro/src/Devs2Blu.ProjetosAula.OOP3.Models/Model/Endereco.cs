@@ -18,11 +18,13 @@ namespace Devs2Blu.ProjetosAula.OOP3.Models.Model
         public String Cidade { get; set; }
         public String UF { get; set; }
 
-        public Endereco() { }
-
-        public Endereco(int id, Pessoa pessoa, string cEP, string rua, int numero, string bairro, string cidade, string uF)
+        public Endereco()
         {
-            Id = id;
+            Pessoa = new Pessoa();
+        }
+
+        public Endereco(Pessoa pessoa, string cEP, string rua, int numero, string bairro, string cidade, string uF)
+        {
             Pessoa = pessoa;
             CEP = cEP;
             Rua = rua;

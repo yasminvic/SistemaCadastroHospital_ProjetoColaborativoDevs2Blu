@@ -1,4 +1,4 @@
-﻿using Devs2Blu.ProjetosAula.SistemaCadastro.Models.Enum;
+﻿using Devs2Blu.ProjetosAula.Models.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;

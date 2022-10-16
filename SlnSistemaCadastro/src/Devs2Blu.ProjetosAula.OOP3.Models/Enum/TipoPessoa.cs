@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Devs2Blu.ProjetosAula.SistemaCadastro.Models.Enum
+namespace Devs2Blu.ProjetosAula.Models.Enum
 {
     public enum TipoPessoa
     {
         [Description("Pessoa Física")]
-        PF = 0,
+        PF = 0, //pessoa física
+
         [Description("Pessoa Jurídica")]
-        PJ = 1
+        PJ = 1 // pessoa jurídica
     }
 }
